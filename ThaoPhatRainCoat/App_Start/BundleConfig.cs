@@ -18,12 +18,19 @@ namespace ThaoPhatRainCoat
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
-
+                      "~/Scripts/respond.js",
+                      "~/Content/js/materialize.min.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Angularjs").Include(
+                "~/Scripts/angular.min.js",
+                "~/Scripts/Apps/app.js"
+                ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/customCSS/raincoat.css"));
+                      "~/Content/font-awesome.min.css",
+                      "~/Content/w3.css",
+                      "~/Content/customCSS/raincoat.css",
+                      "~/Content/materialize.min.css"));
         }
     }
 }

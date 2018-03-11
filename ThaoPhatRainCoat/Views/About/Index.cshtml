@@ -1,9 +1,51 @@
-﻿@model ThaoPhatRainCoat.Models.AboutModel
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    <!-- Dropdown Trigger -->
+    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Drop Me!</a>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+        <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+        <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+    </ul>
+    @*<div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="http://s20.postimg.org/h50tgcuz1/image.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/uxf8bzlql/image.jpg"></a>
+        </div>*@
+    <div class="carousel carousel-slider center" data-indicators="true">
+        <a class="carousel-item" href="#one!"><img src="http://s20.postimg.org/h50tgcuz1/image.jpg"></a>
+        <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/uxf8bzlql/image.jpg"></a>
+    </div>
+</body>
+</html>
 
-<h2>Index</h2>
-
+<script>
+    $(document).ready(function () {
+        //$('.carousel').carousel({
+        //    fullWidth: true,
+        //    indicators: true
+        //});
+        $('.carousel.carousel-slider').carousel({ fullWidth: true });
+    });
+    $('.dropdown-button').dropdown({
+        inDuration: 300,
+        outDuration: 225,
+        constrainWidth: false, // Does not change width of dropdown to that of the activator
+        hover: true, // Activate on hover
+        gutter: 0, // Spacing from edge
+        belowOrigin: false, // Displays dropdown below the button
+        alignment: 'left', // Displays dropdown with edge aligned to the left of button
+        stopPropagation: false // Stops event propagation
+    }
+    );
+</script>

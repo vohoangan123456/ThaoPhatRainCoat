@@ -1,9 +1,79 @@
-﻿@model ThaoPhatRainCoat.Models.ShopModel
+﻿@*@model ThaoPhatRainCoat.Models.ShopModel*@
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div ng-app="appShopPage" ng-controller="shopController" ng-init="init()" id="shopController">
+    <div class="top-carousel">
+        <div class="carousel carousel-slider center " data-indicators="true">
+            <div class="carousel-fixed-item center middle-indicator">
+                <div class="left">
+                    <a href="Previo" class="movePrevCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="fa fa-angle-left"></i></a>
+                </div>
 
-<h2>Index</h2>
+                <div class="right">
+                    <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            <a class="carousel-item" href="#one!"><img src="http://s20.postimg.org/h50tgcuz1/image.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/uxf8bzlql/image.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/el56m97f1/image.jpg"></a>
+            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/66pjy66dp/image.jpg"></a>
+        </div>
+
+    </div>
+    <div class="top-control-bar">
+        <ul class="top-control-bar-ul">
+            <li>
+                <a class="waves-effect waves-light btn btn-style-top-bar btn-new"><i class="fa fa-plus"></i> New</a>
+            </li>
+            <li>
+                <a class="waves-effect waves-light btn btn-style-top-bar btn-edit"><i class="fa fa-edit"></i> Edit</a>
+            </li>
+            <li>
+                <a class="waves-effect waves-light btn btn-style-top-bar btn-delete"><i class="fa fa-remove"></i> Delete</a>
+            </li>
+        </ul>
+    </div>
+    <div class="search-bar">
+        <input type='text' placeholder=' Search...' id='search-text-input' />
+        <div id='button-holder' class="waves-effect waves-light"><img src='~/Content/images/search-icon.png' /></div>
+        <div id="filter-sort-by">
+            <button class="w3-btn w3-round-xxlarge sort-by waves-effect waves-light">
+                Sort by
+                <i class="fa fa-caret-down"></i>
+            </button>
+            @*<div class="sort-by-container">
+                    <span>Catalog price: High to Low</span>
+                    <span>Catalog price: Low to High</span>
+                    <span>Name - A to Z</span>
+                    <span>Name - Z to A</span>
+                </div>*@
+        </div>
+    </div>
+    <div class="grid-list-product">
+        <div class="product-grid">
+            abc
+        </div>
+        <div class="product-grid">
+            def
+        </div>
+        <div class="product-grid">
+            abc
+        </div>
+        <div class="product-grid">
+            def
+        </div>
+    </div>
+    @*<div class="body-content">
+        <div ng-repeat="product in allProducts">
+            <span>{{product.Name}}</span>
+        </div>
+    </div>*@
+</div>
+@section scripts{
+    <script src="~/Scripts/Apps/controllers/shop.controller.js"></script>
+    <script src="~/Scripts/Apps/services/shop.service.js"></script>
+}
 

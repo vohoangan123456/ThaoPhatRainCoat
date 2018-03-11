@@ -1,0 +1,4447 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "OpenSans";
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.table-responsive {
+    overflow-x: inherit;
+    margin-top: 5px;
+}
+
+.required {
+    color: red;
+}
+
+/*** Loading ***/
+
+.loading-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    opacity: 0.95;
+    background: url('../images/loading.gif') no-repeat center center #fff;
+}
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+    pointer-events: none;
+    opacity: 0.25;
+}
+
+/************************* BUTTON STYLE **********************/
+
+.btn-group {
+    display: flex;
+}
+
+.btn > i {
+    margin-right: 10px;
+}
+
+.btn {
+    font-family: "OpenSans";
+    font-weight: 400;
+    padding: 9px 16px;
+    font-size: 13px;
+    border: none;
+}
+
+.btn-default.active.focus,
+.btn-default.active:focus,
+.btn-default.active:hover,
+.btn-default:active.focus,
+.btn-default:active:hover {
+    color: #fff;
+}
+
+.btn.btn-default,
+.btn.btn-primary,
+.btn.btn-dark,
+.btn.btn-danger {
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+}
+
+/* Button default (light blue) */
+
+.btn.btn-default {
+    background-color: #7196bb;
+}
+
+.btn.btn-default:hover {
+    background-color: #5d84aa;
+}
+
+.btn.btn-default.disabled {
+    opacity: 0.4;
+}
+
+.btn.btn-default.disabled:focus,
+.btn.btn-default[disabled]:focus {
+    background-color: #7196bb;
+}
+
+.bootstrap-select .btn.btn-default[disabled]:focus {
+    background-color: #fff;
+}
+
+/* Button light (white grey border) */
+
+.btn.btn-light {
+    background-color: #fff;
+    border: solid 1px #c6c6c6;
+    color: #4d4d4d;
+}
+
+.btn.btn-light:hover {
+    border: solid 1px #a8a8a8;
+}
+
+/* Button primary (dark blue) */
+
+.btn.btn-primary {
+    background-color: #1b456d;
+}
+
+.btn.btn-primary:hover {
+    background-color: #13385b;
+}
+
+/* Button dark (dark grey)*/
+
+.btn.btn-dark {
+    background-color: #3b3b3b;
+}
+
+.btn.btn-dark:hover {
+    background-color: #292929;
+}
+
+/* Button danger (red, usually for critical button like Submit)*/
+
+.btn.btn-danger {
+    background-color: #dc4646;
+}
+
+/* Button size super small */
+
+.btn.btn-size-x-small {
+    height: 17px;
+    padding: 2px 5px;
+    font-size: 9px;
+}
+
+/* Button size small */
+
+.btn.btn-size-small {
+    height: 30px;
+    padding: 7px 10px;
+    font-size: 10px;
+}
+
+/* Button size large */
+
+.btn.btn-size-large {
+    height: 42px;
+    padding: 11px 23px;
+    font-size: 15px;
+}
+
+.btn > .fa {
+    margin-right: 6px;
+}
+
+.bootstrap-select .btn.btn-default {
+    text-transform: capitalize;
+}
+
+/* Button read more read less */
+
+.btn-more-less {
+    background-color: #fff;
+    color: #9d9d9d;
+    border: solid 1px #dcdcdc;
+    height: 18px;
+    font-size: 10px;
+    padding: 2px 9px;
+    margin-top: 5px;
+    width: 44px !important;
+    border-radius: 4px;
+    line-height: 12px;
+    text-transform: capitalize;
+}
+
+.btn-more-less:hover {
+    border: solid 1px #a8a8a8;
+}
+
+/******** background color *********/
+
+.text-red,
+.required {
+    color: red;
+}
+
+.text-blue {
+    color: blue;
+}
+
+/******************** FORM STYLE *******************/
+
+.pad-left-0 {
+    padding-left: 0 !important;
+}
+
+.form-control {
+    width: 100%;
+    padding: 5px 6px;
+    font-size: 12px;
+    height: 35px;
+    border: solid 1px #ddd;
+}
+
+input.form-control {
+    font-weight: 500;
+}
+
+.form-inline .form-control {
+    width: 100%;
+}
+
+.form-control.input-dark {
+    background-color: #597a96;
+    color: #fff;
+}
+
+.form-control.input-sm {
+    height: 30px;
+    font-size: 12px;
+}
+
+.form-control[readonly] {
+    background-color: #fff;
+    border: none;
+    box-shadow: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.input-small {
+    height: 30px;
+}
+
+::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    font-style: italic;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    font-style: italic;
+}
+
+:-ms-input-placeholder {
+    font-style: italic;
+}
+
+textarea {
+    height: auto;
+    -webkit-transition: height 2s ease;
+    -moz-transition: height 2s ease;
+    -ms-transition: height 2s ease;
+    -o-transition: height 2s ease;
+    transition: height 2s ease;
+    resize: vertical;
+}
+
+/* Form group default */
+
+.form-group > label {
+    text-transform: uppercase;
+    color: #656565;
+    font-weight: 600;
+    font-size: 10.3px;
+    display: block;
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.form-group > label + span {
+    line-height: 26px;
+    font-size: 13px;
+}
+
+.input-error {
+    border: solid 1px red;
+}
+
+.input-error {
+    border: solid 1px red;
+}
+
+/************ RADIO & CHECKBOX ***********/
+
+label.checkbox,
+label.radio {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+label.checkbox {
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: none;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+input[type="checkbox"] + span,
+input[type="radio"] + span {
+    width: 26px;
+    height: 22px;
+    display: block;
+    float: left;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: url("../images/checkbox-radio.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+input[type="checkbox"] + span {
+    background-position: 0 0;
+}
+
+input[type="checkbox"]:checked + span {
+    background-position: -30px 0;
+}
+
+input[type="checkbox"]:disabled + span {
+    background-position: -61px 0;
+    opacity: 0.5;
+}
+
+input[type="checkbox"]:disabled:checked + span {
+    background-position: -93px 0;
+}
+
+input[type="checkbox"]:indeterminate + span {
+    background-position: -77px 0;
+}
+
+input[type="radio"] + span {
+    background-position: -122px 0;
+}
+
+input[type="radio"]:checked + span {
+    background-position: -149px 0;
+}
+
+input[type="radio"]:disabled + span {
+    background-position: -175px 0;
+}
+
+input[type="radio"]:disabled:checked + span {
+    background-position: -205px 0;
+}
+
+.checkbox.disabled,
+.radio.disabled,
+.checkbox.disabled > span,
+.radio.disabled > span {
+    cursor: not-allowed;
+    color: #c5c5c5;
+}
+
+.form-inline > label.radio,
+.form-inline > label.checkbox {
+    margin-right: 12px;
+}
+
+.form-inline > label.radio:last-child,
+.form-inline > label.checkbox:last-child {
+    margin-right: 0;
+}
+
+/***************************** ALERT ***************************/
+
+.alert {
+    padding: 6px;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: 'OpenSans';
+    font-size: 13px;
+    float: left;
+    width: 100%;
+    position: relative;
+    padding-left: 26px;
+}
+
+.alert-content p {
+    margin-bottom: 5px;
+}
+
+.alert-content > p:last-child {
+    margin-bottom: 0;
+}
+
+.alert.alert-warning {
+    background-color: #f8e3aa;
+}
+
+.alert.alert-danger {
+    background-color: #f7c3c3;
+}
+
+.alert.alert-success {
+    background-color: #bcebaa;
+}
+
+.alert:before {
+    font-family: 'FontAwesome';
+    margin-right: 8px;
+    font-size: 16px;
+    position: absolute;
+    top: 5px;
+    left: 6px;
+}
+
+.alert.alert-success:before {
+    content: "\f058";
+}
+
+.alert.alert-warning:before {
+    content: "\f071";
+}
+
+.alert.alert-danger:before {
+    content: "\f057";
+}
+
+.alert-wrapper {
+    float: left;
+    width: 100%;
+}
+
+ul.alert-content {
+    list-style: none;
+    padding-left: 0;
+}
+
+/*** NO RESULT ***/
+
+.no-result-found {
+    text-align: center;
+    color: lightgrey;
+    padding: 25px 0;
+    float: left;
+    width: 100%;
+}
+
+.no-result-found h2 {
+    font-weight: 400;
+    font-size: 27px;
+}
+
+.no-result-found h2:before {
+    font-family: 'FontAwesome';
+    content: "\f1c0";
+    display: block;
+    font-size: 50px;
+    margin: 8px 0;
+}
+
+/************************* BOOTSTRAP SELECT ********************/
+
+.dropdown-menu .divider {
+    display: none;
+}
+
+select.bs-select-hidden,
+select.selectpicker {
+    display: none !important;
+}
+
+.bootstrap-select {
+    width: 220px \0;
+    /*IE9 and below*/
+}
+
+.bootstrap-select > .dropdown-toggle {
+    width: 100%;
+    padding-right: 25px;
+    z-index: 1;
+}
+
+.bootstrap-select > .dropdown-toggle.bs-placeholder,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:hover,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:active {
+    color: #999;
+}
+
+.bootstrap-select > select {
+    position: absolute !important;
+    bottom: 0;
+    left: 50%;
+    display: block !important;
+    width: 0.5px !important;
+    height: 100% !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    border: none;
+}
+
+.bootstrap-select > select.mobile-device {
+    top: 0;
+    left: 0;
+    display: block !important;
+    width: 100% !important;
+    z-index: 2;
+}
+
+.bootstrap-select > .btn {
+    padding: 10px 20px 10px 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #4b4b4b;
+    background-color: #fff;
+    border: solid 1px #d6d6d6;
+}
+
+.bootstrap-select .btn.btn-default:hover {
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+.has-error .bootstrap-select .dropdown-toggle,
+.error .bootstrap-select .dropdown-toggle {
+    border-color: #b94a48;
+}
+
+.bootstrap-select.fit-width {
+    width: auto !important;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100%;
+}
+
+.bootstrap-select .dropdown-toggle:focus {
+    outline: thin dotted #333333 !important;
+    outline: 5px auto -webkit-focus-ring-color !important;
+    outline-offset: -2px;
+}
+
+.bootstrap-select.form-control {
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+}
+
+.bootstrap-select.form-control:not([class*="col-"]) {
+    width: 100%;
+}
+
+.bootstrap-select.form-control.input-group-btn {
+    z-index: auto;
+}
+
+.bootstrap-select.btn-group:not(.input-group-btn),
+.bootstrap-select.btn-group[class*="col-"] {
+    float: none;
+    display: inline-block;
+    margin-left: 0;
+}
+
+.bootstrap-select.btn-group.dropdown-menu-right,
+.bootstrap-select.btn-group[class*="col-"].dropdown-menu-right,
+.row .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right {
+    float: right;
+}
+
+.form-inline .bootstrap-select.btn-group,
+.form-horizontal .bootstrap-select.btn-group,
+.form-group .bootstrap-select.btn-group {
+    margin-bottom: 0;
+}
+
+.form-group-lg .bootstrap-select.btn-group.form-control,
+.form-group-sm .bootstrap-select.btn-group.form-control {
+    padding: 0;
+}
+
+.form-inline .bootstrap-select.btn-group .form-control {
+    width: 100%;
+}
+
+.bootstrap-select.btn-group.disabled,
+.bootstrap-select.btn-group > .disabled,
+input[readonly] {
+    cursor: not-allowed;
+}
+
+.bootstrap-select.btn-group.disabled:focus,
+.bootstrap-select.btn-group > .disabled:focus,
+input[readonly]:focus {
+    outline: none !important;
+}
+
+.bootstrap-select.btn-group.bs-container {
+    position: absolute;
+}
+
+.bootstrap-select.btn-group.bs-container .dropdown-menu {
+    z-index: 1060;
+    font-size: 13px;
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    text-align: left;
+    font-size: 12px;
+}
+
+.bootstrap-select.btn-group .dropdown-toggle .caret {
+    position: absolute;
+    top: 50%;
+    right: 7px;
+    margin-top: -2px;
+    vertical-align: middle;
+}
+
+.bootstrap-select.btn-group[class*="col-"] .dropdown-toggle {
+    width: 100%;
+}
+
+.bootstrap-select.btn-group .dropdown-menu {
+    min-width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bootstrap-select.btn-group .dropdown-menu.inner {
+    position: static;
+    float: none;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li {
+    position: relative;
+    border-bottom: solid 1px #efefff;
+    word-break: break-word;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li.disabled {
+    cursor: not-allowed;
+    color: #c5c5c5;
+    opacity: 0.6;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li.active small {
+    color: #fff;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li.disabled a,
+input[readonly] {
+    cursor: not-allowed;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 5px 7px;
+    line-height: 22px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a.opt {
+    position: relative;
+    padding-left: 2.25em;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a span.check-mark {
+    display: none;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a span.text {
+    display: inline-block;
+    white-space: normal;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li small {
+    padding-left: 0.5em;
+}
+
+.bootstrap-select.btn-group .dropdown-menu .notify {
+    position: absolute;
+    bottom: 5px;
+    width: 96%;
+    margin: 0 2%;
+    min-height: 26px;
+    padding: 3px 5px;
+    background: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    pointer-events: none;
+    opacity: 0.9;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bootstrap-select.btn-group .no-results {
+    padding: 3px;
+    background: #f5f5f5;
+    margin: 0 5px;
+    white-space: nowrap;
+}
+
+.bootstrap-select.btn-group.fit-width .dropdown-toggle .filter-option {
+    position: static;
+}
+
+.bootstrap-select.btn-group.fit-width .dropdown-toggle .caret {
+    position: static;
+    top: auto;
+    margin-top: -1px;
+}
+
+.bootstrap-select.show-tick.btn-group .dropdown-menu li a span.check-mark {
+    width: 26px;
+    height: 22px;
+    display: block;
+    background-image: url("../images/checkbox-radio.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-position: 0 0;
+    position: absolute;
+    top: 5px;
+}
+
+.bootstrap-select.show-tick.btn-group .dropdown-menu li.disabled a span.check-mark {
+    cursor: not-allowed;
+}
+
+.bootstrap-select.btn-group.show-tick .dropdown-menu li.selected a span.check-mark {
+    background-position: -30px 0;
+}
+
+.bootstrap-select.btn-group.show-tick .dropdown-menu li a span.text {
+    margin-left: 28px;
+}
+
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle {
+    z-index: 1061;
+}
+
+.bootstrap-select.show-menu-arrow .dropdown-toggle:before {
+    content: '';
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid rgba(204, 204, 204, 0.2);
+    position: absolute;
+    bottom: -4px;
+    left: 9px;
+    display: none;
+}
+
+.bootstrap-select.show-menu-arrow .dropdown-toggle:after {
+    content: '';
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white;
+    position: absolute;
+    bottom: -4px;
+    left: 10px;
+    display: none;
+}
+
+.bootstrap-select.show-menu-arrow.dropup .dropdown-toggle:before {
+    bottom: auto;
+    top: -3px;
+    border-top: 7px solid rgba(204, 204, 204, 0.2);
+    border-bottom: 0;
+}
+
+.bootstrap-select.show-menu-arrow.dropup .dropdown-toggle:after {
+    bottom: auto;
+    top: -3px;
+    border-top: 6px solid white;
+    border-bottom: 0;
+}
+
+.bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:before {
+    right: 12px;
+    left: auto;
+}
+
+.bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:after {
+    right: 13px;
+    left: auto;
+}
+
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle:before,
+.bootstrap-select.show-menu-arrow.open > .dropdown-toggle:after {
+    display: block;
+}
+
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:focus,
+.dropdown-menu > .active > a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #4866a5;
+    outline: 0;
+}
+
+.bs-searchbox,
+.bs-actionsbox,
+.bs-donebutton {
+    padding: 4px 8px;
+}
+
+.bs-actionsbox {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bs-actionsbox .btn-group button {
+    width: 50%;
+    white-space: normal;
+    padding: 5px 2px;
+    font-size: 10px;
+}
+
+.bs-donebutton {
+    float: left;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.bs-donebutton .btn-group button {
+    width: 100%;
+}
+
+.bs-searchbox + .bs-actionsbox {
+    padding: 0 8px 4px;
+}
+
+.bs-searchbox .form-control {
+    margin-bottom: 0;
+    width: 100%;
+    float: none;
+}
+
+/********* Table fix header ***********/
+
+.table-fix-header tr {
+    width: 100%;
+    font-size: 12px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.table-fix-header thead tr {
+    text-transform: uppercase;
+    color: lightslategray;
+    font-size: 10px;
+}
+
+.table-fix-header tbody {
+    display: block;
+}
+
+.table-fix-header thead .form-group {
+    margin-bottom: 0;
+}
+
+.table-fix-header thead tr:nth-child(2) > th {
+    flex: 1;
+    -webkit-flex: 1;
+    font-size: 10px;
+}
+
+table.table-fix-header tbody > tr > td,
+table.table-fix-header thead > tr > th {
+    padding: 5px;
+    border-bottom: solid 1px #ececec;
+}
+
+.table-fix-header tbody tr > td,
+.table-fix-header thead tr > th {
+    flex: 1;
+    -webkit-flex: 1;
+}
+
+.table-fix-header thead tr > th {
+    border-width: 1px;
+}
+
+/********* list item can add and remove *****************/
+
+.list-item-add-remove ul {
+    list-style: none;
+    padding: 0;
+    float: left;
+    width: 100%;
+}
+
+.list-item-add-remove ul li {
+    float: left;
+    width: 100%;
+    border-bottom: solid 1px #ececec;
+    padding: 3px 0 3px 2px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.list-item-add-remove.list-half ul li {
+    width: 49%;
+}
+
+.list-item-add-remove.list-half ul li:nth-child(2n) {
+    margin-left: 1%;
+}
+
+.list-item-add-remove.list-half ul li:nth-child(2n+1) {
+    margin-right: 1%;
+}
+
+.btn-item-del {
+    font-size: 14px;
+    color: #b6b6b6;
+    flex: 0 0 20px;
+}
+
+/**************************** DATEPICKER ***************************/
+
+.datepicker {
+    padding: 4px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    direction: ltr;
+    background-color: #295786;
+    color: #4e8bc7;
+    font-family: 'OpenSans';
+    padding: 12px;
+    z-index: 9999 !important;
+}
+
+.datepicker table thead {
+    color: #fff;
+}
+
+.datepicker-inline {
+    width: 220px;
+}
+
+.datepicker.datepicker-rtl {
+    direction: rtl;
+}
+
+.datepicker.datepicker-rtl.dropdown-menu {
+    left: auto;
+}
+
+.datepicker.datepicker-rtl table tr td span {
+    float: right;
+}
+
+.datepicker-dropdown {
+    top: 0;
+    left: 0;
+}
+
+.datepicker-dropdown:before {
+    content: '';
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #295786;
+    border-top: 0;
+    border-bottom-color: #295786;
+    position: absolute;
+    z-index: 9999 !important;
+}
+
+.datepicker-dropdown:after {
+    content: '';
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #295786;
+    border-top: 0;
+    position: absolute;
+}
+
+.datepicker-dropdown.datepicker-orient-left:before {
+    left: 6px;
+}
+
+.datepicker-dropdown.datepicker-orient-left:after {
+    left: 7px;
+}
+
+.datepicker-dropdown.datepicker-orient-right:before {
+    right: 6px;
+}
+
+.datepicker-dropdown.datepicker-orient-right:after {
+    right: 7px;
+}
+
+.datepicker-dropdown.datepicker-orient-bottom:before {
+    top: -7px;
+}
+
+.datepicker-dropdown.datepicker-orient-bottom:after {
+    top: -6px;
+}
+
+.datepicker-dropdown.datepicker-orient-top:before {
+    bottom: -7px;
+    border-bottom: 0;
+    border-top: 7px solid #999;
+}
+
+.datepicker-dropdown.datepicker-orient-top:after {
+    bottom: -6px;
+    border-bottom: 0;
+    border-top: 6px solid #fff;
+}
+
+.datepicker table {
+    margin: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.datepicker table tbody {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.datepicker td,
+.datepicker th {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: none;
+}
+
+.table-striped .datepicker table tr td,
+.table-striped .datepicker table tr th {
+    background-color: transparent;
+}
+
+.datepicker table tr td.day:hover,
+.datepicker table tr td.day.focused {
+    background: #eee;
+    cursor: pointer;
+}
+
+.datepicker table tr td.old,
+.datepicker table tr td.new {
+    color: #386ca0;
+}
+
+.datepicker table tr td.disabled,
+.datepicker table tr td.disabled:hover {
+    background: none;
+    color: #999;
+    cursor: default;
+}
+
+.datepicker table tr td.highlighted {
+    background: #d9edf7;
+    border-radius: 0;
+}
+
+.datepicker table tr td.today,
+.datepicker table tr td.today:hover,
+.datepicker table tr td.today.disabled,
+.datepicker table tr td.today.disabled:hover {
+    color: #10acf3;
+    border-bottom-style: solid;
+}
+
+.datepicker table tr td.today:hover,
+.datepicker table tr td.today:hover:hover,
+.datepicker table tr td.today.disabled:hover,
+.datepicker table tr td.today.disabled:hover:hover,
+.datepicker table tr td.today:active,
+.datepicker table tr td.today:hover:active,
+.datepicker table tr td.today.disabled:active,
+.datepicker table tr td.today.disabled:hover:active,
+.datepicker table tr td.today.active,
+.datepicker table tr td.today:hover.active,
+.datepicker table tr td.today.disabled.active,
+.datepicker table tr td.today.disabled:hover.active,
+.datepicker table tr td.today.disabled,
+.datepicker table tr td.today:hover.disabled,
+.datepicker table tr td.today.disabled.disabled,
+.datepicker table tr td.today.disabled:hover.disabled,
+.datepicker table tr td.today[disabled],
+.datepicker table tr td.today:hover[disabled],
+.datepicker table tr td.today.disabled[disabled],
+.datepicker table tr td.today.disabled:hover[disabled] {
+    background-color: #10acf3;
+}
+
+.datepicker table tr td.today:active,
+.datepicker table tr td.today:hover:active,
+.datepicker table tr td.today.disabled:active,
+.datepicker table tr td.today.disabled:hover:active,
+.datepicker table tr td.today.active,
+.datepicker table tr td.today:hover.active,
+.datepicker table tr td.today.disabled.active,
+.datepicker table tr td.today.disabled:hover.active {
+    background-color: #fbf069 \9;
+}
+
+.datepicker table tr td.today:hover:hover {
+    color: #000;
+}
+
+.datepicker table tr td.today.active:hover {
+    color: #fff;
+}
+
+.datepicker table tr td.range,
+.datepicker table tr td.range:hover,
+.datepicker table tr td.range.disabled,
+.datepicker table tr td.range.disabled:hover {
+    background: #eee;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.datepicker table tr td.range.today,
+.datepicker table tr td.range.today:hover,
+.datepicker table tr td.range.today.disabled,
+.datepicker table tr td.range.today.disabled:hover {
+    background-color: #f3d17a;
+    background-image: -moz-linear-gradient(to bottom, #f3c17a, #f3e97a);
+    background-image: -ms-linear-gradient(to bottom, #f3c17a, #f3e97a);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f3c17a), to(#f3e97a));
+    background-image: -webkit-linear-gradient(to bottom, #f3c17a, #f3e97a);
+    background-image: -o-linear-gradient(to bottom, #f3c17a, #f3e97a);
+    background-image: linear-gradient(to bottom, #f3c17a, #f3e97a);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f3c17a', endColorstr='#f3e97a', GradientType=0);
+    border-color: #f3e97a #f3e97a #edde34;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.datepicker table tr td.range.today:hover,
+.datepicker table tr td.range.today:hover:hover,
+.datepicker table tr td.range.today.disabled:hover,
+.datepicker table tr td.range.today.disabled:hover:hover,
+.datepicker table tr td.range.today:active,
+.datepicker table tr td.range.today:hover:active,
+.datepicker table tr td.range.today.disabled:active,
+.datepicker table tr td.range.today.disabled:hover:active,
+.datepicker table tr td.range.today.active,
+.datepicker table tr td.range.today:hover.active,
+.datepicker table tr td.range.today.disabled.active,
+.datepicker table tr td.range.today.disabled:hover.active,
+.datepicker table tr td.range.today.disabled,
+.datepicker table tr td.range.today:hover.disabled,
+.datepicker table tr td.range.today.disabled.disabled,
+.datepicker table tr td.range.today.disabled:hover.disabled,
+.datepicker table tr td.range.today[disabled],
+.datepicker table tr td.range.today:hover[disabled],
+.datepicker table tr td.range.today.disabled[disabled],
+.datepicker table tr td.range.today.disabled:hover[disabled] {
+    background-color: #f3e97a;
+}
+
+.datepicker table tr td.range.today:active,
+.datepicker table tr td.range.today:hover:active,
+.datepicker table tr td.range.today.disabled:active,
+.datepicker table tr td.range.today.disabled:hover:active,
+.datepicker table tr td.range.today.active,
+.datepicker table tr td.range.today:hover.active,
+.datepicker table tr td.range.today.disabled.active,
+.datepicker table tr td.range.today.disabled:hover.active {
+    background-color: #efe24b \9;
+}
+
+.datepicker table tr td.selected,
+.datepicker table tr td.selected:hover,
+.datepicker table tr td.selected.disabled,
+.datepicker table tr td.selected.disabled:hover {
+    background-color: #9e9e9e;
+    background-image: -moz-linear-gradient(to bottom, #b3b3b3, #808080);
+    background-image: -ms-linear-gradient(to bottom, #b3b3b3, #808080);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b3b3b3), to(#808080));
+    background-image: -webkit-linear-gradient(to bottom, #b3b3b3, #808080);
+    background-image: -o-linear-gradient(to bottom, #b3b3b3, #808080);
+    background-image: linear-gradient(to bottom, #b3b3b3, #808080);
+    background-repeat: repeat-x;
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#b3b3b3', endColorstr='#808080', GradientType=0);
+    border-color: #808080 #808080 #595959;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.datepicker table tr td.selected:hover,
+.datepicker table tr td.selected:hover:hover,
+.datepicker table tr td.selected.disabled:hover,
+.datepicker table tr td.selected.disabled:hover:hover,
+.datepicker table tr td.selected:active,
+.datepicker table tr td.selected:hover:active,
+.datepicker table tr td.selected.disabled:active,
+.datepicker table tr td.selected.disabled:hover:active,
+.datepicker table tr td.selected.active,
+.datepicker table tr td.selected:hover.active,
+.datepicker table tr td.selected.disabled.active,
+.datepicker table tr td.selected.disabled:hover.active,
+.datepicker table tr td.selected.disabled,
+.datepicker table tr td.selected:hover.disabled,
+.datepicker table tr td.selected.disabled.disabled,
+.datepicker table tr td.selected.disabled:hover.disabled,
+.datepicker table tr td.selected[disabled],
+.datepicker table tr td.selected:hover[disabled],
+.datepicker table tr td.selected.disabled[disabled],
+.datepicker table tr td.selected.disabled:hover[disabled] {
+    background-color: #808080;
+}
+
+.datepicker table tr td.selected:active,
+.datepicker table tr td.selected:hover:active,
+.datepicker table tr td.selected.disabled:active,
+.datepicker table tr td.selected.disabled:hover:active,
+.datepicker table tr td.selected.active,
+.datepicker table tr td.selected:hover.active,
+.datepicker table tr td.selected.disabled.active,
+.datepicker table tr td.selected.disabled:hover.active {
+    background-color: #666666 \9;
+}
+
+.datepicker table tr td.active,
+.datepicker table tr td.active:hover,
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active.disabled:hover {
+    background-color: #4c77a6;
+    color: #fff;
+}
+
+.datepicker table tr td.active:active,
+.datepicker table tr td.active:hover:active,
+.datepicker table tr td.active.disabled:active,
+.datepicker table tr td.active.disabled:hover:active,
+.datepicker table tr td.active.active,
+.datepicker table tr td.active:hover.active,
+.datepicker table tr td.active.disabled.active,
+.datepicker table tr td.active.disabled:hover.active {
+    background-color: #003399 \9;
+}
+
+.datepicker table tr td span {
+    display: block;
+    width: 23%;
+    height: 54px;
+    line-height: 54px;
+    float: left;
+    margin: 1%;
+    cursor: pointer;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.datepicker table tr td span:hover,
+.datepicker table tr td span.focused {
+    background-color: #4c77a6;
+    color: #fff;
+}
+
+.datepicker table tr td span.disabled,
+.datepicker table tr td span.disabled:hover {
+    background: none;
+    color: #999;
+    cursor: default;
+}
+
+.datepicker table tr td span.active,
+.datepicker table tr td span.active:hover,
+.datepicker table tr td span.active.disabled,
+.datepicker table tr td span.active.disabled:hover {
+    background-color: #4c77a6;
+    color: #fff;
+}
+
+.datepicker table tr td span.active:hover,
+.datepicker table tr td span.active:hover:hover,
+.datepicker table tr td span.active.disabled:hover,
+.datepicker table tr td span.active.disabled:hover:hover,
+.datepicker table tr td span.active:active,
+.datepicker table tr td span.active:hover:active,
+.datepicker table tr td span.active.disabled:active,
+.datepicker table tr td span.active.disabled:hover:active,
+.datepicker table tr td span.active.active,
+.datepicker table tr td span.active:hover.active,
+.datepicker table tr td span.active.disabled.active,
+.datepicker table tr td span.active.disabled:hover.active,
+.datepicker table tr td span.active.disabled,
+.datepicker table tr td span.active:hover.disabled,
+.datepicker table tr td span.active.disabled.disabled,
+.datepicker table tr td span.active.disabled:hover.disabled,
+.datepicker table tr td span.active[disabled],
+.datepicker table tr td span.active:hover[disabled],
+.datepicker table tr td span.active.disabled[disabled],
+.datepicker table tr td span.active.disabled:hover[disabled] {
+    background-color: #4c77a6;
+    color: #fff;
+}
+
+.datepicker table tr td span.active:active,
+.datepicker table tr td span.active:hover:active,
+.datepicker table tr td span.active.disabled:active,
+.datepicker table tr td span.active.disabled:hover:active,
+.datepicker table tr td span.active.active,
+.datepicker table tr td span.active:hover.active,
+.datepicker table tr td span.active.disabled.active,
+.datepicker table tr td span.active.disabled:hover.active {
+    background-color: #003399 \9;
+}
+
+.datepicker table tr td span.old,
+.datepicker table tr td span.new {
+    color: #386ca0;
+}
+
+.datepicker .datepicker-switch {
+    width: 145px;
+    color: #5682b2;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.datepicker .datepicker-switch,
+.datepicker .prev,
+.datepicker .next,
+.datepicker tfoot tr th {
+    cursor: pointer;
+}
+
+.datepicker .datepicker-switch:hover,
+.datepicker .prev:hover,
+.datepicker .next:hover,
+.datepicker tfoot tr th:hover {
+    background-color: #4c77a6;
+    color: #fff;
+}
+
+.datepicker .prev.disabled,
+.datepicker .next.disabled {
+    visibility: hidden;
+}
+
+.datepicker .cw {
+    font-size: 10px;
+    width: 12px;
+    padding: 0 2px 0 5px;
+    vertical-align: middle;
+}
+
+.input-append.date .add-on,
+.input-prepend.date .add-on {
+    cursor: pointer;
+}
+
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+    margin-top: 3px;
+}
+
+.input-daterange input {
+    text-align: center;
+}
+
+.input-daterange input:first-child {
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+
+.input-daterange input:last-child {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.input-daterange .add-on {
+    display: inline-block;
+    width: auto;
+    min-width: 16px;
+    height: 18px;
+    padding: 4px 5px;
+    font-weight: normal;
+    line-height: 18px;
+    text-align: center;
+    text-shadow: 0 1px 0 #fff;
+    vertical-align: middle;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week,
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week:hover,
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week:hover td.day:hover,
+.datepicker table tr td.day:hover,
+.datepicker table tr.active-week td.day.focused,
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week td.active {
+    background-color: #4c77a6;
+    color: #fff;
+}
+
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week > td:first-child,
+.datepicker.picker-mode-week .datepicker-days table tbody tr:hover > td:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week > td:last-child,
+.datepicker.picker-mode-week .datepicker-days table tbody tr:hover > td:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.datepicker.picker-mode-week .datepicker-days table tbody tr:hover {
+    background-color: #3a6fa5;
+}
+
+.datepicker.picker-mode-week .datepicker-days table tbody tr:hover td.day:hover {
+    background-color: #3a6fa5;
+}
+
+.datepicker.picker-mode-week .datepicker-days table tbody tr:hover > td,
+.datepicker.picker-mode-week .datepicker-days table tbody tr.active-week > td {
+    border-radius: 0;
+}
+
+/********************************* JQUERY TIMEPICKER *************************************/
+
+.ui-timepicker-wrapper {
+    overflow-y: auto;
+    height: 150px;
+    width: 6.5em;
+    background: #fff;
+    border: 1px solid #ddd;
+    -webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);
+    -moz-box-shadow:0 5px 10px rgba(0,0,0,0.2);
+    box-shadow:0 5px 10px rgba(0,0,0,0.2);
+    outline: none;
+    z-index: 10001;
+    margin: 0;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration {
+    width: 13em;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-30,
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-60 {
+    width: 11em;
+}
+
+.ui-timepicker-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ui-timepicker-duration {
+    margin-left: 5px; color: #888;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-duration {
+    color: #888;
+}
+
+.ui-timepicker-list li {
+    padding: 3px 0 3px 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    color: #000;
+    list-style: none;
+    margin: 0;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-selected {
+    background: #fff; color: #000;
+}
+
+li.ui-timepicker-selected,
+.ui-timepicker-list li:hover,
+.ui-timepicker-list .ui-timepicker-selected:hover {
+    background: #1980EC; color: #fff;
+}
+
+li.ui-timepicker-selected .ui-timepicker-duration,
+.ui-timepicker-list li:hover .ui-timepicker-duration {
+    color: #ccc;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled,
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+    color: #888;
+    cursor: default;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+    background: #f2f2f2;
+}
+
+/************************************************** MODAL ************************************************/
+
+.modal h4 {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/************ modal stay in the middle *******************/
+
+.modal {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.modal-title {
+    text-transform: capitalize;
+}
+
+/**********************/
+
+/*Modal administration*/
+
+.modal-group-header-master,
+.modal-group-header {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.modal-group-header {
+    border-bottom: solid 5px #eaeaea;
+    margin-bottom: 12px;
+}
+
+.modal-form-group-wrapper {
+    padding-left: 20px;
+}
+
+.modal-group-header-master {
+    background-color: #eaeaea;
+    border: solid 1px #d8d8d8;
+    border-top: solid 1px #d8d8d8;
+    border-bottom: solid 1px #d8d8d8;
+    padding: 0px 5px;
+    margin-bottom: 12px;
+}
+
+.modal-group-master-title {
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.modal-form-group-wrapper .modal-group-title {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.modal-footer a.btn {
+    padding: 10px 25px;
+    font-size: 13px;
+}
+
+/******* MODAL ADD GLOBAL ************/
+
+.admin-add-list tr {
+    width: 100%;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: lightslategray;
+    line-height: 45px;
+}
+
+.admin-add-list thead tr:nth-child(2) > th {
+    font-size: 10px;
+}
+
+.admin-add-list thead tr:nth-child(2) > th:last-child {
+    min-width: 125px;
+}
+
+table.admin-add-list tbody > tr > td,
+table.admin-add-list thead > tr > th {
+    padding: 6px 2px;
+    vertical-align: top;
+}
+
+.admin-add-list .admin-col-checkbox {
+    width: 50px;
+    min-width: 50px;
+    max-width: 50px;
+}
+
+.admin-add-list .admin-col-delete {
+    padding-top: 0px;
+}
+
+.admin-add-list thead tr > th {
+    border-width: 1px;
+}
+
+.admin-add-list thead {
+    display: table;
+    width: 100%;
+}
+
+#add-new-service .admin-add-list thead > tr:nth-child(2) > th {
+    vertical-align: top;
+}
+
+.admin-add-list tbody tr > td input[type="checkbox"] + span,
+.admin-add-list thead tr > th input[type="checkbox"] + span {
+    float: none;
+    margin: 6px auto;
+}
+
+.admin-add-list thead .form-group {
+    margin-bottom: 0;
+}
+
+.admin-add-list thead tr > th:nth-child(4),
+.admin-add-list thead tr > th:nth-child(6) {
+    text-align: center;
+}
+
+.admin-add-list thead tr > th:nth-child(5),
+.admin-add-list tbody tr > td:nth-child(5) {
+    width: 100px;
+}
+
+.admin-add-list tbody tr > td:nth-child(7) {
+    font-size: 13px;
+    line-height: 35px;
+}
+
+.admin-add-list .btn-delete {
+    margin: 6px 0;
+}
+
+.admin-add-list tbody {
+    overflow-y: scroll;
+    height: 400px;
+    width: 100%;
+    display: block;
+}
+
+#global-adding-item .modal-dialog {
+    width: 50%;
+}
+
+#global-adding-item .modal-content h3 {
+    margin: 0;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #333;
+    border-bottom: solid 1px #333;
+    padding: 6px 0;
+}
+
+.admin-add-list thead tr:first-child > th {
+    padding-left: 0;
+}
+
+.line-add-table-item {
+    background-color: #eaeaea;
+}
+
+/************* Holiday ************/
+
+.holiday-name {
+    width: 50%;
+}
+
+.holiday-date,
+.holiday-action {
+    width: 25%;
+}
+
+/**************** Modal add itsm ticket *****************/
+
+#add-itsm-ticket .table-fix-header tbody > tr > td:nth-child(1),
+#add-itsm-ticket .table-fix-header thead > tr > th:nth-child(1) {
+    flex: 0 0 45px;
+}
+
+#add-itsm-ticket .table-fix-header tbody > tr > td:nth-child(3),
+#add-itsm-ticket .table-fix-header thead > tr > th:nth-child(3) {
+    flex: 0 0 225px;
+    min-width: 225px;
+    word-wrap: break-word;
+}
+
+#add-itsm-ticket table tbody tr {
+    cursor: pointer;
+}
+
+#add-itsm-ticket .modal-dialog {
+    width: 740px;
+}
+
+.btn-update-itsm {
+    float: left;
+}
+
+.itsm-no-data {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: lightgray;
+}
+
+/************************ MAIN MENU ********************************/
+
+#main-header {
+    background-color: #1b456d;
+    color: #fff;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+#main-header a {
+    color: #fff;
+}
+
+h1#branding {
+    font-size: 16px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 47px;
+    letter-spacing: 0.02em;
+}
+
+ul#main-menu {
+    margin: 10px 0 6px 0;
+}
+
+ul#main-menu > li > a:hover {
+    color: #ececec;
+}
+
+ul#main-menu > li {
+    border-left: solid 1px #7196bb;
+}
+
+ul#main-menu > li:first-child {
+    border-left: none;
+}
+
+ul#main-menu > li.menu-btn-log,
+ul#main-menu > li.menu-user-info {
+    border-left: none;
+}
+
+ul#main-menu > li a {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    padding: 0 9px;
+    line-height: 30px;
+}
+
+ul#user-info {
+    margin: 4px 0 0 0;
+    padding: 0 15px;
+    list-style: none;
+}
+
+ul#user-info > li {
+    line-height: 14px;
+}
+
+ul#user-info li.user-name {
+    color: #fff;
+    font-size: 13px;
+}
+
+ul#user-info li.user-properties {
+    text-transform: uppercase;
+    color: #7196bb;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+ul#main-menu > li.log-off {
+    text-align: center;
+}
+
+ul#main-menu > li.log-off > a {
+    font-size: 8px;
+    line-height: 22px;
+}
+
+ul#main-menu > li.log-off > a > i {
+    display: block;
+    font-size: 17px;
+    margin: 0 2px -3px 2px;
+}
+
+/******* BOOTSTRAP DROPDOWN MENU ********/
+
+#main-header .dropdown-menu,
+#main-header .nav .open > a,
+#main-header .nav .open > a:focus,
+#main-header .nav .open > a:hover,
+#main-header .nav > li > a:focus,
+#main-header .nav > li > a:hover,
+#main-header .dropdown-menu > li > a:focus,
+#main-header .dropdown-menu > li > a:hover {
+    background-color: #1b456d;
+    color: #fff;
+    text-decoration: none;
+}
+
+#main-header .nav > li > a.btn:hover {
+    background-color: #5d84aa;
+}
+
+#main-header .dropdown-menu {
+    background-color: #123551;
+}
+
+#main-header .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+#main-header .navbar-collapse.collapse.in ul#main-menu > li {
+    border: none;
+}
+
+#main-header .navbar-collapse.collapse.in ul#main-menu > li > ul#user-info li {
+    float: left;
+}
+
+#main-header .navbar-collapse.collapse.in ul#main-menu > li > ul#user-info li.user-name {
+    margin-right: 10px;
+}
+
+#main-header .navbar-collapse.collapse.in ul#main-menu > li > ul#user-info {
+    padding-left: 0;
+}
+
+/************ COMMON FOR ALL PAGES *************/
+
+.page-title,
+.page-title small {
+    color: #414141;
+    font-size: 25px;
+}
+
+.time-navigation {
+    padding-top: 11px;
+}
+
+#page-content-wrapper {
+    float: left;
+    width: 100%;
+}
+
+/*************************** SELECT ROLE*******************************/
+
+#select-role {
+    background-color: #1b456d;
+    height: 100%;
+}
+
+#select-role .role-wrapper-outer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+#select-role #page-content-wrapper h1 {
+    color: #fff;
+    text-align: center;
+    font-weight: 300;
+    font-size: 35px;
+}
+
+#select-role .role {
+    width: 250px;
+    height: 200px;
+    background: #fff;
+    border-radius: 14px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+#select-role .role:hover {
+    box-shadow: 1px 2px 20px rgba(125, 214, 255, 1.0);
+    -webkit-box-shadow: 1px 2px 20px rgba(125, 214, 255, 1.0);
+    text-decoration: none;
+}
+
+#select-role .role:focus {
+    text-decoration: none;
+}
+
+#select-role .role::before {
+    font-family: 'FontAwesome';
+    content: "\f007";
+    font-size: 69px;
+    position: relative;
+    top: 16px;
+    color: #1b456d;
+}
+
+#select-role .role > h2 {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#select-role .role > h2 a {
+    color: #333;
+}
+
+#select-role .role > h2 > span {
+    display: block;
+    font-weight: 300;
+    font-size: 24px;
+    text-transform: capitalize;
+}
+
+.role-wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+}
+
+/************ REPORT SEARCH ****************/
+
+.btn-sing-multi {
+    background: none;
+    border: none;
+    color: #7196BB;
+    font-size: 12px;
+    top: -4px;
+    position: relative;
+    padding: 0;
+}
+
+.btn-sing-multi:hover {
+    color: #547D9E;
+}
+
+.report-time-mode .btn-group .btn-default {
+    background-color: #dcdcdc;
+    color: #fff;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 8px 30px;
+    font-size: 12px;
+}
+
+.report-time-mode .btn-group .btn-default.active {
+    background-color: #7196bb;
+}
+
+.report-display-date {
+    padding-right: 10px;
+    float: right;
+}
+
+.report-date-display {
+    min-width: 350px;
+}
+
+.timesheet-page-header .timesheet-time-mode {
+    float: right;
+}
+
+.report-date-display .period-group .period-group-single input,
+.report-date-display .period-group .period-group-multi input {
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+    text-align: right;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    line-height: 0;
+    width: 100%;
+    background: transparent;
+    padding-right: 20px;
+}
+
+.period-group-single::after,
+.period-group-multi::after {
+    font-family: 'FontAwesome';
+    content: "\f073";
+    color: #7196bb;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -999;
+}
+
+.report-date-display .period-group input {
+    outline: none;
+}
+
+.report-date-display .period-group input::after {
+    font-family: 'FontAwesome';
+    content: "\f073";
+}
+
+.report-time-mode {
+    float: right;
+}
+
+.report-time-mode .btn-group {
+    float: right;
+}
+
+.period-group {
+    text-align: right;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.report-search-criteria {
+    background-color: #eaeaea;
+    border-top: solid 1px #d8d8d8;
+    border-bottom: solid 1px #d8d8d8;
+    padding: 0 15px;
+}
+
+.search-content {
+    border-bottom: solid 1px #d8d8d8;
+}
+
+.report-search-criteria .search-content {
+    width: 100%;
+    float: left;
+}
+
+.search-item {
+    padding: 0 2px;
+}
+
+.report-search-criteria .search-item {
+    float: left;
+}
+
+.report-search-criteria .search-item {
+    width: 10%;
+}
+
+.report-search-criteria .search-item.search-service {
+    width: 20%;
+}
+
+@media (max-width: 1350px) {
+    .report-search-criteria .search-item {
+        width: 10%;
+    }
+    .report-search-criteria .search-item.search-service {
+        width: 20%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .report-search-criteria .search-item {
+        width: 15%;
+    }
+    .report-search-criteria .search-item.search-service {
+        width: 40%;
+    }
+    .report-search-criteria .search-item.search-type {
+        width: 30%;
+    }
+    .report-search-criteria .search-item.search-service-company {
+        width: 40%;
+    }
+}
+
+@media (max-width: 900px) {
+    .report-search-criteria .search-item {
+        width: 25%;
+    }
+    .report-search-criteria .search-item.search-service,
+    .report-search-criteria .search-item.search-service-company,
+    .report-search-criteria .search-item.search-time {
+        width: 50%;
+    }
+    .report-search-criteria .search-item.search-type {
+        width: 25%;
+    }
+}
+
+.search-label {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    float: left;
+    width: 100%;
+}
+
+.search-label h4 {
+    text-transform: capitalize;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: left;
+    float: left;
+}
+
+.btn.btn-default.key {
+    background-color: #de3a3a;
+    float: right;
+}
+
+.report-search-criteria .search-content .search-item .set-key {
+    float: right;
+    margin: 6px 0 0 0;
+}
+
+.search-submission {
+    text-align: right;
+    padding: 3px 0;
+    float: left;
+    width: 100%;
+}
+
+.search-item .form-group {
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .time-navigation {
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+    }
+    .btn-sing-multi {
+        padding-left: 0;
+    }
+}
+
+/*************** Report result **************/
+
+.report-result-area {
+    float: left;
+    width: 100%;
+    padding: 0;
+}
+
+.result-data-list .table-responsive {
+    overflow: auto;
+}
+
+.result-data-list > .table-responsive > table {
+    font-size: 11px;
+    display: table;
+}
+
+.result-data-list .table-condensed > tbody > tr > td,
+.result-data-list .table-condensed > tbody > tr > th,
+.result-data-list .table-condensed > tfoot > tr > td,
+.result-data-list .table-condensed > tfoot > tr > th,
+.result-data-list .table-condensed > thead > tr > td,
+.result-data-list .table-condensed > thead > tr > th {
+    padding: 2px;
+}
+
+.result-data-list table tbody {
+    overflow: auto;
+}
+
+.result-data-list table thead tr th {
+    text-transform: uppercase;
+    color: #a1a1a1;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    vertical-align: top;
+}
+
+.result-data-list table thead tr th.key {
+    font-weight: 600;
+    color: red;
+}
+
+.result-data-list table tbody tr td.key {
+    color: red;
+    font-weight: 600;
+}
+
+.result-data-list table tfoot {
+    text-align: right;
+    background-color: #ececec;
+}
+
+.result-data-list table tfoot {
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.result-data-list table tfoot .data-result-number span {
+    font-weight: 500;
+    font-size: 9px;
+    text-transform: uppercase;
+    margin: 0;
+    display: block;
+}
+
+.data-result-title {
+    line-height: 28px;
+    font-size: 12px;
+    margin-right: 10px;
+    float: right;
+}
+
+.data-result-number {
+    font-size: 24px;
+    line-height: 23px;
+    margin: 0 20px 0 0;
+    float: right;
+    font-weight: 600;
+    text-align: left;
+}
+
+.data-result-number.number-total {
+    border-right: solid 1px #d8d8d8;
+    padding-right: 15px;
+}
+
+.multidata-header,
+.table-hover .tbody-wrapper > tbody > tr.multidata-header:hover {
+    background-color: #1b456d !important;
+    color: #fff !important;
+}
+
+.multidata-header > td:nth-child(2) {
+    text-align: right;
+    color: #fff !important;
+}
+
+/*****************Table vertical (when in large screen) *********************/
+
+.result-data-list .table-vertical table tr td,
+.result-data-list .table-vertical table tr th {
+    min-width: 80px;
+    max-width: 80px;
+}
+
+/*Service*/
+
+.result-data-list .table-vertical table tr td:nth-child(3),
+.result-data-list .table-vertical table tr th:nth-child(3) {
+    min-width: 100px;
+    max-width: 100px;
+}
+
+/*Reg loc*/
+
+.result-data-list .table-vertical table tr td:nth-child(5),
+.result-data-list .table-vertical table tr th:nth-child(5) {
+    min-width: 50px;
+    max-width: 50px;
+}
+
+/*Company*/
+
+.result-data-list .table-vertical table tr td:nth-child(6),
+.result-data-list .table-vertical table tr th:nth-child(6) {
+    min-width: 80px;
+    max-width: 80px;
+}
+
+/*Normal OT*/
+
+.result-data-list .table-vertical table tr td:nth-child(7) {
+    text-transform: lowercase;
+}
+
+/*figure: hour and percentage*/
+
+.result-data-list .table-vertical table tr td:nth-child(8),
+.result-data-list .table-vertical table tr th:nth-child(8),
+.result-data-list .table-vertical table tr td:nth-child(9),
+.result-data-list .table-vertical table tr th:nth-child(9) {
+    min-width: 50px;
+    max-width: 50px;
+}
+
+.result-data-list .table-vertical table tr td:nth-child(8),
+.result-data-list .table-vertical table tr td:nth-child(9) {
+    font-weight: 600;
+}
+
+/*****************Table horizontal for single period (when in small screen)*********************/
+
+.result-data-list .table-horizontal .cf:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.result-data-list .table-horizontal * html .cf {
+    zoom: 1;
+}
+
+.result-data-list .table-horizontal *:first-child + html .cf {
+    zoom: 1;
+}
+
+.result-data-list .table-horizontal > table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.result-data-list .table-horizontal > table > thead > tr > th,
+.result-data-list .table-horizontal > table > tbody > tr > td,
+.result-data-list .table-horizontal > table > tfoot > tr > td {
+    margin: 0;
+    vertical-align: top;
+}
+
+.result-data-list .table-horizontal > table > thead > tr > th {
+    text-align: left;
+}
+
+.table-multiple#overall-dataTable > thead {
+    width: 80px;
+}
+
+table#overall-dataTable tr[no-data="true"]
+{
+    color: #bbb;
+}
+
+.result-data-list .table-horizontal > table {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.result-data-list .table-horizontal > table > thead {
+    display: block;
+    float: left;
+}
+
+.result-data-list .table-horizontal > table > tbody {
+    display: block;
+    width: auto;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.result-data-list .table-horizontal > table > thead > tr {
+    display: block;
+}
+
+.result-data-list .table-horizontal > .table > thead > tr > th {
+    border: none;
+    width: 75px;
+    padding-left: 0;
+    color: #333;
+    font-weight: 600;
+    font-size: 10px;
+}
+
+.result-data-list .table-horizontal > table > thead > tr > th {
+    display: block;
+    text-align: right;
+}
+
+.result-data-list .table-horizontal tbody tr {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.result-data-list .table-responsive.table-horizontal > .table > tbody > tr > td {
+    display: block;
+    text-align: left;
+    max-width: 100px;
+    white-space: normal;
+}
+
+.result-data-list .table-horizontal > table > tfoot {
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+.result-data-list .table-horizontal > table > tfoot > tr,
+.result-data-list .table-horizontal > table > tfoot > tr > td {
+    display: block;
+    width: 100%;
+    float: left;
+}
+
+/* sort out borders */
+
+.result-data-list .table-horizontal th {
+    border-bottom: 0;
+    border-left: 0;
+}
+
+.result-data-list .table-horizontal td {
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.result-data-list .table-horizontal tbody tr {
+    border-left: 1px solid #babcbf;
+}
+
+.result-data-list .table-horizontal th:last-child,
+.result-data-list .table-horizontal td:last-child {
+    border-bottom: 1px solid #babcbf;
+}
+
+/********************* table vertical for multi tbody **************************/
+
+/********************* table horizontal for multi tbody **************************/
+
+.result-data-list .table-horizontal .tbody-wrapper {
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.result-data-list .table-horizontal .tbody-wrapper tbody {
+    display: flex;
+    vertical-align: top;
+    float: left;
+    overflow: visible;
+}
+
+.result-data-list .table-horizontal .tbody-wrapper tbody > tr {
+    display: block;
+    min-height: 1.25em;
+    text-align: left;
+    white-space: normal;
+}
+
+.result-data-list .table-horizontal .tbody-wrapper tbody > tr > td {
+    display: block;
+}
+
+.multi-header-date {
+    float: left;
+    font-size: 12px;
+    font-weight: 600;
+    /*line-height: 20px;*/
+}
+
+.multi-header-sum {
+    float: right;
+    color: lightslategray;
+    /*line-height: 20px;*/
+}
+
+.multi-header-sum span.RangeTotal {
+    margin-right: 15px;
+}
+
+.multi-header-value {
+    color: #fff;
+    font-size: 12px;
+}
+
+#overall-dataTable tr.multidata-header td.result-average {
+    padding-top: 7px;
+}
+
+.result-data-list .table-horizontal tr.multidata-header td.result-average {
+    border: none;
+}
+
+.result-data-list .table-horizontal tr.multidata-header td.result-average .multi-header-value {
+    font-size: 17px;
+    line-height: 23px;
+}
+
+.result-data-list .table-horizontal tr.multidata-header td.result-average .multi-header-date {
+    margin-bottom: 12px;
+}
+
+.result-data-list .table-horizontal tr.multidata-header td.result-average .multi-header-sum label {
+    line-height: 13px;
+    margin-bottom: 20px;
+}
+
+/************************* Style for multiple body *************************/
+
+.table-hover .tbody-wrapper > tbody > tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table .tbody-wrapper > tbody > tr > td,
+.table .tbody-wrapper > tbody > tr > th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+.tbody-wrapper {
+    overflow: auto;
+    display: block;
+}
+
+/*** result chart ***/
+
+.result-chart,
+.result-data-list {
+    float: left;
+    width: 100%;
+}
+
+.result-chart {
+    padding-left: 10px;
+}
+
+.result-chart .chart-option,
+.result-chart .chart {
+    float: left;
+    width: 100%;
+}
+
+.result-chart .chart-option {
+    margin-top: 8px;
+}
+
+@media (max-width: 1000px) {
+    .result-chart {
+        width: 100%;
+    }
+}
+
+.chart-type a {
+    color: #d9d9d9;
+    font-size: 21px;
+    padding: 0 8px;
+}
+
+.chart-type a:hover {
+    color: #898989;
+}
+
+.chart-type .btn.active a {
+    color: #7CA1C4;
+}
+
+.chart-type a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.chart-type .btn-group .btn:active,
+.chart-type .btn-group .btn:active:focus,
+.chart-type .btn-group .btn:focus,
+.chart-type .btn-group .btn.active.focus,
+.chart-type .btn-group .btn.active {
+    box-shadow: none;
+    outline: none;
+}
+
+.chart-type .btn-group .btn {
+    padding: 9px 0;
+}
+
+.chart-type {
+    float: left;
+    margin-left: 20px;
+}
+
+.chart-unit {
+    float: right;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.chart-unit label {
+    color: #bababa;
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 28px;
+    margin-right: 8px;
+}
+
+.chart-unit .btn-group {
+    margin-right: 8px;
+}
+
+.chart,
+.chart-unvailable {
+    height: 100%;
+    position: relative;
+}
+
+.chart {
+    width: 100%;
+    overflow-y: auto;
+}
+
+/* Chart overide */
+
+.nvd3-svg {
+    margin: 0 auto;
+}
+
+/******************************* ADMINISTRATION ******************************/
+
+.admin-page-inner-wrapper {
+    padding: 0 15px;
+}
+
+#admin-left-menu .nav-pills > li > a {
+    padding: 10px 6px;
+}
+
+#admin-left-menu,
+#admin-content-wrapper {
+    float: left;
+}
+
+#admin-left-menu {
+    width: 15%;
+    padding: 0 20px 0 0;
+}
+
+#admin-content-wrapper {
+    width: 85%;
+}
+
+.btn-icon {
+    padding: 4px 6px;
+    width: 22px;
+    height: 22px;
+}
+
+.btn-icon > span.fa {
+    font-size: 14px;
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+
+.select-group {
+    float: left;
+    width: 100%;
+}
+
+#page-admin-setting .setting-table tr > td:first-child,
+#page-admin-setting .setting-table tr > th:first-child {
+    text-align: left;
+}
+
+.setting-table tr > td:last-child {
+    text-align: right;
+}
+
+#page-admin-setting .modal .setting-table tr > td:last-child,
+#page-admin-setting .modal .setting-table tr > th:last-child {
+    text-align: center;
+    flex: 0 0 155px;
+    -webkit-flex: 0 0 155px;
+}
+
+.line-add-table-item .btn {
+    padding: 8px 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.tab-content > .container-fluid {
+    padding-right: 0;
+}
+
+/********** ADMIN SECTION GROUP *********/
+
+#admin-content-wrapper .div-header-wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    padding: 8px 0 8px 8px;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+#admin-content-wrapper .div-header-wrapper .btn-div-action {
+    align-self: center;
+    -webkit-align-self: center;
+}
+
+#admin-content-wrapper .div-header {
+    color: #414141;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 34px;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-add-zone {
+    float: left;
+    width: 100%;
+    padding: 8px 0;
+    display: inline-block;
+}
+
+.admin-add-zone > .btn {
+    line-height: 20px;
+    padding: 9px 12px;
+    margin-top: 18px;
+    width: 25%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.admin-add-zone > .btn-icon {
+    align-self: center;
+    margin: 0 0 9px 7px;
+}
+
+.admin-add-zone > .form-group {
+    float: left;
+    width: 75%;
+    padding: 0 10px 0 0;
+    margin: 0;
+}
+
+#date-setting.tab-pane .admin-add-zone > .form-group > .form-group {
+    float: left;
+    width: 33.3%;
+    padding: 0 4px;
+    margin-bottom: 0;
+}
+
+#date-setting .header-action-zone > span {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+
+#date-setting .header-action-zone > span > input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.setting-table {
+    margin-bottom: 0;
+}
+
+.setting-table thead > tr:first-child {
+    color: #a1a1a1;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.setting-table .table-divider:hover {
+    background-color: #eaeaea;
+}
+
+.setting-table .table-divider {
+    background-color: #eaeaea;
+    text-align: left;
+}
+
+.setting-table .table-divider h4 {
+    text-transform: uppercase;
+    margin: 3px 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.user-update-status {
+    font-size: 11px;
+    display: block;
+    float: right;
+    text-align: right;
+    margin: 6px 0 0 0;
+    line-height: 15px;
+}
+
+.user-update-status > strong {
+    display: block;
+}
+
+.admin-user-filter {
+    background-color: #eaeaea;
+    border-top: solid 1px #d8d8d8;
+    border-bottom: solid 1px #d8d8d8;
+    padding: 5px;
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+
+/*Set width filter of each tab*/
+
+.tab-pane .admin-user-filter > .select-group > .form-group {
+    padding: 0 3px;
+    float: left;
+    margin-bottom: 0;
+}
+
+.tab-pane#division .admin-user-filter > .select-group > .form-group {
+    width: 100%;
+}
+
+.tab-pane#department .admin-user-filter > .select-group > .form-group,
+.tab-pane#date-setting .admin-user-filter > .select-group > .form-group {
+    width: 50%;
+}
+
+.tab-pane#service-company .admin-user-filter > .select-group > .form-group,
+.tab-pane#service .admin-user-filter > .select-group > .form-group,
+.tab-pane#type .admin-user-filter > .select-group > .form-group,
+.tab-pane#area .admin-user-filter > .select-group > .form-group {
+    width: 33.3%;
+}
+
+.tab-pane#user-management .admin-user-filter > .select-group > .form-group.user-company,
+.tab-pane#user-management .admin-user-filter > .select-group > .form-group.user-division,
+.tab-pane#user-management .admin-user-filter > .select-group > .form-group.user-department,
+.tab-pane#user-management .admin-user-filter > .select-group > .form-group.user-role,
+.tab-pane#user-management .admin-user-filter > .select-group > .form-group.user-status {
+    width: 20%;
+}
+
+.tab-pane#user-management .admin-user-filter > .select-group > .form-group.user-name {
+    width: 75%;
+}
+
+.admin-user-filter .select-group > .form-group.admin-user-search {
+    width: 25%;
+}
+
+#admin-content-wrapper .header-action-zone .btn {
+    padding: 10px 20px;
+    font-size: 13px;
+}
+
+.admin-col-checkbox {
+    text-align: center;
+}
+
+.admin-col-checkbox input[type="checkbox"] + span {
+    float: none;
+    margin: 0 auto;
+}
+
+.setting-table tr.table-divider > td {
+    text-align: left;
+}
+
+.search-user > div {
+    float: left;
+}
+
+.search-user > .user-name {
+    width: 75%;
+}
+
+.search-user > .search-action {
+    width: 25%;
+    padding-top: 19px;
+}
+
+.search-action > a {
+    width: 48%;
+    float: left;
+    margin-left: 2%;
+}
+
+/***************** USER MANAGEMENT ****************/
+
+#page-admin-setting #modal-edit .modal-dialog {
+    width: 50%;
+}
+
+.user-role-property thead {
+    font-size: 12px;
+    color: #656565;
+    text-transform: uppercase;
+    font-size: 10.3px;
+}
+
+.user-role-property.table > tbody > tr > td,
+.user-role-property.table > thead > tr > th,
+.user-role-property.table > tfoot > tr > td {
+    border: none;
+    padding: 2px;
+}
+
+.table.user-role-property > tbody > tr > td.col-user-delete {
+    width: 30px;
+    vertical-align: middle;
+}
+
+#user-management .table tbody tr > td:nth-child(2) {
+    text-transform: uppercase;
+}
+
+#modal-edit-holiday .modal-body,
+#modal-edit .modal-body {
+    overflow-y: hidden !important;
+}
+
+/************************ TIMESHEET *************************/
+
+.timesheet-mode-date-header {
+    background-color: #eee;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.2);
+    border: solid 1px #eaeaea;
+}
+
+.timesheet-mode-week-header {
+    background-color: #eee;
+    box-shadow: 3px 2px 4px rgba(0, 0, 0, 0.2);
+    border: solid 1px #eaeaea;
+}
+
+.header-date-item {
+    position: relative;
+    flex: 1;
+    -web-kit-flex: 1;
+    padding: 5px 0 0px 7px;
+    border-right: solid 1px #e2e2e2;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f7f7f7+0,eaeaea+99 */
+    background: #f7f7f7;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f7f7f7 0%, #eaeaea 99%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f7f7f7 0%, #eaeaea 99%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f7f7f7 0%, #eaeaea 99%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#eaeaea', GradientType=0);
+    /* IE6-9 */
+}
+
+.header-date-item.header-lock::after {
+    font-family: 'FontAwesome';
+    content: "\f084";
+    transform: rotate(46deg);
+    -webkit-transform: rotate(46deg);
+    position: absolute;
+    right: 6px;
+    top: 14px;
+    font-size: 20px;
+    color: #c3c3c3;
+}
+
+.header-date-item.active.header-lock::after {
+    color: #fff;
+}
+
+.header-date-item a:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.timesheet-header-title strong.holiday::after {
+    font-family: 'FontAwesome';
+    content: "\f11e";
+    color: red;
+    margin-left: 5px;
+}
+
+.header-date-item.header-total {
+    box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.header-date-item.header-total a > span {
+    float: left;
+    width: 50%;
+    line-height: 50px;
+}
+
+.header-date-item.active {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#87b0c5+0,485979+99 */
+    background: #87b0c5;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #87b0c5 0%, #485979 99%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #87b0c5 0%, #485979 99%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #87b0c5 0%, #485979 99%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#87b0c5', endColorstr='#485979', GradientType=0);
+    /* IE6-9 */
+}
+
+.header-date-item.active,
+.header-date-item.active .timesheet-header-title,
+.header-date-item.active .timesheet-header-title strong,
+.header-date-item.active .timesheet-header-hour {
+    color: #fff;
+}
+
+.header-date-item .timesheet-header-title,
+.header-date-item .timesheet-header-hour {
+    display: block;
+}
+
+.header-date-item .timesheet-header-title {
+    color: #828282;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.timesheet-header-title strong {
+    color: #333;
+    display: block;
+    font-size: 11px;
+}
+
+.header-date-item .timesheet-header-hour {
+    font-weight: 600;
+    font-size: 22px;
+    color: #3b3b3b;
+}
+
+.timesheet-lock-header {
+    color: #a1a1a1;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+thead tr.timesheet-lock-header td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+tbody tr.timesheet-lock-header td {
+    padding: 7px 0 7px 8px;
+}
+
+.timesheet-mode-week tbody tr td > span.week-span-normal,
+.timesheet-mode-week tbody tr td > span.week-span-ot {
+    font-size: 18px;
+}
+
+.timesheet-mode-week tbody tr td > span.week-span-normal {
+    color: #555;
+}
+
+.timesheet-mode-week tbody tr td > span.week-span-ot,
+.have-ot {
+    color: blue;
+}
+
+.timesheet-mode-week tbody tr td > span.week-span-normal,
+.input-normal,
+.label-normal {
+    font-weight: 600;
+}
+
+.input-normal,
+.input-ot,
+.label-normal,
+.label-ot,
+.week-span-normal,
+.week-span-ot {
+    width: 49%;
+}
+
+.input-normal,
+.label-normal,
+.week-span-normal {
+    float: left;
+}
+
+.input-ot,
+.label-ot,
+.week-span-ot {
+    float: right;
+}
+
+.input-normal,
+.label-normal,
+.week-span-normal {
+    margin-right: 1%;
+}
+
+.input-ot,
+.label-ot,
+.week-span-ot {
+    margin-left: 1%;
+}
+
+.input-normal + .input-ot,
+.label-normal + .label-ot {
+    float: right;
+}
+
+.input-ot,
+.label-ot {
+    float: none;
+    margin: 0 auto;
+}
+
+.table-timesheet {
+    margin-top: 0;
+    overflow-x: auto;
+}
+
+/* Timesheet warning */
+
+.timesheet-warning .timesheet-header-hour,
+.timesheet-error .timesheet-header-hour {
+    color: red;
+}
+
+.popover-warning-wrapper {
+    background-color: #dc4646;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+}
+
+.popover.top.popover-warning-wrapper > .arrow:after {
+    border-top-color: #dc4646;
+}
+
+.popover-warning-wrapper .popover-content {
+    padding: 4px 17px 3px 6px;
+    font-size: 12px;
+    color: #f99999;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+}
+
+.popover-warning-wrapper .popover-content > span {
+    display: block;
+    color: #fff;
+}
+
+.popover-close {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+    color: #f99999;
+    font-size: 12px;
+}
+
+.popover-close:hover,
+.popover-close:focus {
+    color: #fff;
+}
+
+.popover-close:focus {
+    text-decoration: none;
+}
+
+.popover{
+    max-width: 100%;
+}
+
+/* Add activity row */
+
+.add-activity {
+    background: #ececec;
+    box-shadow: inset 1px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.add-activity input[type="text"],
+.add-activity textarea,
+.add-activity .selectpicker {
+    background-color: #597a96;
+}
+
+.add-itsm-input {
+    height: 40px;
+}
+
+.timesheet-area textarea {
+    resize: vertical;
+    height: 40px;
+    font-size: 11px;
+    min-height: 40px;
+}
+
+.add-activity .form-control {
+    color: #fff;
+}
+
+.add-activity .form-control::-webkit-input-placeholder {
+    color: #fff;
+}
+
+.add-activity .form-control:-moz-placeholder {
+    color: #fff;
+}
+
+.add-activity .form-control::-moz-placeholder {
+    color: #fff;
+}
+
+.add-activity .form-control:-ms-input-placeholder {
+    color: #fff;
+}
+
+.add-activity .search-label,
+.add-activity .search-input {
+    float: left;
+    width: 100%;
+}
+
+.add-activity .bootstrap-select button,
+.add-activity .bootstrap-select .btn.btn-default:hover,
+.add-activity .open > .dropdown-toggle.btn-default:focus,
+.add-activity .open > .dropdown-toggle.btn-default {
+    background-color: #597a96;
+    color: #fff;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.add-activity .form-group.select-error .bootstrap-select button,
+.add-activity .form-group.select-error .bootstrap-select .btn.btn-default:hover,
+.add-activity .form-group.select-error .open > .dropdown-toggle.btn-default:focus,
+.add-activity .form-group.select-error .open > .dropdown-toggle.btn-default {
+    background-color: #dc4646;
+}
+
+.add-activity .search-label h4 {
+    margin: 11px 0px 5px 0;
+    min-height: 21px;
+}
+
+thead tr.add-activity th {
+    padding: 0 0px 5px 0px;
+}
+
+.table > thead > tr.add-activity th {
+    vertical-align: top;
+}
+
+.table > thead > tr.add-activity > th:last-child {
+    padding-right: 10px;
+    padding-top: 37px;
+    min-width: 155px;
+}
+
+.save-draft-wrapper {
+    float: left;
+    width: 100%;
+}
+
+/* Mode date */
+
+.table-timesheet thead tr.timesheet-lock-header > th {
+    padding-left: 0;
+}
+
+.timesheet-mode-date .add-activity .col-add-company,
+.timesheet-lock-header > th:nth-child(4) {
+    width: 10%;
+    min-width: 100px;
+}
+
+.timesheet-mode-date .add-activity .col-add-comment,
+.timesheet-lock-header > th:nth-child(7) {
+    width: 20%;
+    min-width: 200px;
+}
+
+.timesheet-lock-header > th:nth-child(7) {
+    max-width: 300px;
+}
+
+.timesheet-mode-date .add-activity .col-add-ticket,
+.timesheet-lock-header > th:nth-child(8) {
+    width: 12%;
+    max-width: 250px;
+    min-width: 100px;
+}
+
+.timesheet-mode-date .add-activity .col-add-service,
+.timesheet-mode-date .add-activity .col-add-type,
+.timesheet-lock-header > th:nth-child(2),
+.timesheet-lock-header > th:nth-child(3) {
+    width: 20%;
+    min-width: 200px;
+}
+
+.btn.btn-copy {
+    float: right;
+    margin-right: 10px;
+}
+
+/*Hour*/
+
+.timesheet-mode-date .add-activity .col-add-hour {
+    min-width: 75px;
+    max-width: 75px;
+}
+
+.timesheet-mode-date .add-activity .col-add-hour .search-label h4 {
+    text-align: center;
+    float: none;
+}
+
+.timesheet-mode-date .add-activity .col-add-hour input,
+.timesheet-mode-week .add-activity .col-add-hour input {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.timesheet-mode-date .add-activity .col-add-hour input {
+    text-align: center;
+}
+
+.timesheet-mode-date tfoot > tr > td:last-child a.btn,
+.timesheet-mode-week .save-draft-wrapper a.btn {
+    padding: 11px 9px;
+    float: right;
+    margin-left: 10px;
+}
+
+table {
+    border-collapse: unset;
+    margin-bottom: 15px;
+}
+
+.timesheet-mode-date tbody tr>td:last-child {
+    vertical-align: middle;
+}
+
+/* add itsm */
+
+.add-activity .add-itsm {
+    overflow: auto;
+    background-color: #597a96;
+    border-radius: 4px;
+}
+
+.add-itsm-input {
+    background-color: transparent;
+    border: none;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+/* mode week */
+
+.timesheet-mode-week .add-activity .col-add-company {
+    max-width: 200px;
+    min-width: 100px;
+    width: 15%;
+}
+
+.timesheet-mode-week .add-activity .col-add-hour {
+    max-width: 80px;
+    width: 80px;
+}
+
+.timesheet-mode-week .add-activity .col-add-area {
+    width: 10%;
+    max-width: 150px;
+    min-width: 100px;
+}
+
+.timesheet-mode-week .add-activity .col-add-type {
+    width: 20%;
+    min-width: 200px;
+}
+
+.timesheet-mode-week .add-activity .col-add-date {
+    width: 15%;
+    max-width: 250px;
+}
+
+.timesheet-mode-week .add-activity .col-add-service {
+    width: 18%;
+    max-width: 300px;
+}
+
+.table > thead > tr.add-activity > th:first-child {
+    padding-left: 3px;
+}
+
+.table > thead > tr.add-activity th:last-child > a {
+    height: 40px;
+    font-size: 13px;
+    line-height: 23px;
+    white-space: pre-wrap;
+    width: 100%;
+}
+
+.table-timesheet tbody {
+    font-size: 13px;
+}
+
+.table-timesheet tbody tr td {
+    vertical-align: top;
+    padding: 7px 2px;
+    word-break: break-all;
+}
+
+.btn-timesheet-del {
+    font-size: 20px;
+    color: #b6b6b6;
+    float: right;
+    margin-right: 10px;
+}
+
+.table-timesheet input[type="text"] {
+    font-size: 12px;
+}
+
+.col-timesheet-hour {
+    font-weight: 600;
+    width: 80px;
+}
+
+.timesheet-mode-week .col-timesheet-hour {
+    border-left: 1px solid #f2f0f0;
+}
+
+.table-timesheet .col-timesheet-hour input[type="text"] {
+    font-size: 18px;
+    text-align: center;
+}
+
+.table-timesheet tbody input[type="text"],
+.add-activity input[type="text"] {
+    height: 40px;
+}
+
+.body-add-itsm-input {
+    overflow: auto;
+    font-size: 11px;
+    min-height: 40px;
+}
+
+.table-timesheet tfoot {
+    background-color: #f6f6f6;
+    border-top: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+}
+
+.table-timesheet tfoot tr td:last-child {
+    text-align: right;
+}
+
+ul.sum-reg-loc {
+    list-style: none;
+    float: right;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding: 0;
+}
+
+ul.sum-reg-loc li {
+    float: left;
+    margin: 0 14px;
+    font-size: 15px;
+}
+
+ul.sum-reg-loc li span {
+    color: #898989;
+    text-transform: uppercase;
+}
+
+ul.sum-reg-loc li span > strong {
+    color: #313131;
+}
+
+.table-timesheet tfoot tr td.timesheet-sum {
+    padding: 12px 6px;
+}
+
+.timesheet-sum strong {
+    font-size: 25px;
+    text-transform: uppercase;
+    line-height: 31px;
+}
+
+.timesheet-sum span {
+    text-transform: uppercase;
+}
+
+.timesheet-page-header .timesheet-time-mode .btn-group {
+    width: 215px;
+    margin: -2px 0 0 0;
+}
+
+.timesheet-page-header .btn-group .btn-default {
+    background-color: #dcdcdc;
+    color: #fff;
+    box-shadow: inset 1px 5px 3px rgba(0, 0, 0, 0.1);
+    padding: 9px 35px;
+    font-size: 15px;
+}
+
+.timesheet-page-header .btn-group .btn-default.active {
+    background-color: #7196bb;
+}
+
+.timesheet-page-header .period-group input {
+    border: none;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 38px;
+    cursor: pointer;
+}
+
+.timesheet-page-header a.btn-next,
+.timesheet-page-header a.btn-prev {
+    font-size: 26px;
+}
+
+.timesheet-mode-week table tbody input[type="text"] {
+    font-size: 18px;
+    height: 40px;
+    text-align: center;
+}
+
+.timesheet-mode-week .header-date-item {
+    width: 12%;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    padding: 5px 0 0px 7px;
+}
+
+.timesheet-mode-week .header-date-item:first-child {
+    width: 14%;
+}
+
+.timesheet-mode-week .header-date-item:first-child h3 {
+    text-align: left;
+    font-size: 15px;
+    color: #828282;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 0 0 7px;
+    margin: 0;
+    letter-spacing: 0.02em;
+}
+
+.timesheet-mode-week .header-date-item:last-child {
+    width: 3%;
+}
+
+.timesheet-mode-week .table-responsive {
+    overflow-x: initial;
+}
+
+.timesheet-mode-week tbody tr td {
+    font-size: 18px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.timesheet-mode-week tbody tr td:first-child {
+    font-size: 14px;
+    text-align: left;
+}
+
+.timesheet-mode-week tbody tr td > span {
+    color: #999;
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.timesheet-mode-week tbody tr td p {
+    margin: 0;
+    font-size: 13px;
+}
+
+.timesheet-mode-week tbody tr td p > strong {
+    font-size: 15px;
+}
+
+.timesheet-mode-week a {
+    font-size: 12px;
+}
+
+.week-comment {
+    font-size: 11px;
+    color: #999;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.week-comment:before {
+    font-family: 'FontAwesome';
+    content: "\f27b";
+    font-size: 12px;
+    margin-right: 2px;
+}
+
+/******************************* RESOURCE REPORT ************************************/
+
+.resource-list,
+.resource-chart {
+    float: left;
+}
+
+.resource-list {
+    width: 30%;
+    padding-top: 10px;
+}
+
+.resource-chart {
+    width: 70%;
+}
+
+.resource-chart .chart-option {
+    float: left;
+    width: 100%;
+    padding: 10px 0 0 0;
+}
+
+/* Employee list */
+
+.resource-all,
+.resource-selected {
+    box-shadow: inset 1px 1px 7px rgba(1, 1, 1, 0.3);
+    padding: 5px;
+    position: relative;
+}
+
+.resource-selected {
+    margin-bottom: 5px;
+}
+
+.resource-all > input {
+    position: absolute;
+    top: 6px;
+    left: 2%;
+    right: 2%;
+    width: 96%;
+}
+
+.resource-all {
+    padding-top: 46px;
+}
+
+.resource-selected-inner {
+    padding: 10px;
+}
+
+.resource-list .employee-item {
+    border-top: solid 1px #eaeaea;
+    padding: 6px 3px;
+    line-height: 14px;
+    cursor: pointer;
+}
+
+.resource-list .employee-item > .employee-item-inner > strong {
+    color: #676767;
+    font-size: 13px;
+}
+
+.resource-list .employee-item > .employee-item-inner > span {
+    color: #a2a2a2;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.resource-selected .employee-item {
+    position: relative;
+}
+
+.resource-selected .btn-employee-remove {
+    position: absolute;
+    right: 0;
+    top: 7px;
+    color: #b6b6b6;
+    font-size: 13px;
+}
+
+.resource-list .employee-item-inner {
+    padding-right: 10px;
+}
+
+#resource-report .employee-item-inner a {
+    outline: 0;
+}
+
+#resource-report .report-result-area {
+    overflow: auto;
+}
+
+.employee-movement {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.employee-movement > .btn {
+    padding: 4px 6px;
+    margin: 6px 0;
+    font-size: 9px;
+}
+
+.employee-movement > .btn i {
+    font-size: 10px;
+}
+
+.employee-show-chart {
+    float: right;
+}
+
+/********************************* TIMESHEET MANAGEMENT ****************************************/
+
+/*************************** LEGEND ******************************/
+
+.timesheet-legend-wrapper {
+    float: right;
+}
+
+.timesheet-legend-wrapper ul {
+    list-style: none;
+    float: left;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.timesheet-legend-wrapper ul li {
+    float: left;
+    position: relative;
+    padding: 0 6px;
+    margin: 2px 10px;
+}
+
+.timesheet-legend-group-1,
+.timesheet-legend-group-2 {
+    margin-top: 7px;
+    float: left;
+}
+
+.timesheet-legend > span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.timesheet-legend > input {
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+.legend-locked > span,
+.legend-empty-locked > span,
+.legend-save-as-draft > span,
+.legend-available > span {
+    float: left;
+    margin-right: 6px;
+}
+
+.legend-available > span {
+    background-color: #fff;
+    border: solid 1px #dfdfdf;
+}
+
+.legend-locked > span {
+    background-color: #aec2d8;
+    border: solid 1px #d8d8d8;
+}
+
+.legend-empty-locked > span {
+    background-color: #d82e2e;
+    border: solid 1px #d8d8d8;
+}
+
+.legend-save-as-draft > span {
+    background-color: #4c77a6;
+    border: solid 1px #d8d8d8;
+}
+
+.timesheet-legend-group-2 ul li.timesheet-legend span.legend-item:before {
+    content: '';
+    position: absolute;
+    border-bottom-width: 10px;
+    border-bottom-style: solid;
+    height: 100%;
+    width: 12px;
+    transform: translateY(-35%);
+    left: 32px;
+}
+
+.timesheet-legend-group-2 ul li.legend-full > span:before {
+    border-bottom-color: #6aba54;
+}
+
+.timesheet-legend-group-2 ul li.legend-leave span.legend-item:before {
+    border-bottom-color: navy;
+}
+
+.timesheet-legend-group-2 ul li.legend-medical span.legend-item:before {
+    border-bottom-color: pink;
+}
+
+.timesheet-legend-group-2 ul li.legend-training span.legend-item:before {
+    border-bottom-color: #610b38;
+}
+
+.timesheet-legend-group-2 ul li.legend-seminar span.legend-item:before {
+    border-bottom-color: #af53ea;
+}
+
+.timesheet-legend-group-2 ul li.legend-travel span.legend-item:before {
+    border-bottom-color: #088a08;
+}
+.timesheet-legend-group-1 {
+    border-right: solid 1px #dedede;
+}
+
+span.legend-item{
+    margin-right: 22px;
+}
+
+/*********************************/
+
+.timesheet-management-area .select-group > .form-group {
+    float: left;
+    width: 33.33%;
+    padding: 0 3px;
+}
+
+#resource-report .report-date-display {
+    min-width: 200px;
+}
+
+.timesheet-management-area table {
+    border-collapse: inherit;
+    border: solid 1px #d8d8d8;
+}
+
+.timesheet-management-area table tbody tr td,
+.timesheet-management-area table thead tr th {
+    border: solid 1px #d8d8d8;
+}
+
+.timesheet-management-area table tbody tr td {
+    min-width: 30px;
+    max-width: 30px;
+    width: 30px;
+    height: 40px;
+    position: relative;
+    padding: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.timesheet-management-area .table-responsive {
+    overflow-x: inherit;
+}
+
+.timesheet-management-area table thead tr > th {
+    text-align: center;
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.timesheet-management-area table thead tr > th:first-child {
+    text-align: left;
+}
+
+.timesheet-management-area table thead tr > th:first-child .form-group {
+    margin-bottom: 0;
+}
+
+.timesheet-management-area table thead tr {
+    background-color: #eee;
+    border: solid 1px #d8d8d8;
+}
+
+.timesheet-management-area table td.day-current,
+.timesheet-management-area table th.day-current {
+    border-left: solid 3px #f64f6b !important;
+}
+
+.timesheet-management-area table tbody tr td .legend-wrapper {
+    display: flex;
+}
+
+.timesheet-management-area table tbody tr td .legend-wrapper > span {
+    display: block;
+    height: 8px;
+    width: 100%;
+}
+
+.timesheet-management-area table tbody .legend-medical {
+    background-color:pink;
+}
+
+.timesheet-management-area table tbody .medical-half {
+    background: linear-gradient(90deg, pink 50%, #FFFFFF 50%);
+}
+
+.timesheet-management-area table tbody .legend-leave {
+    background-color:navy;
+}
+
+.timesheet-management-area table tbody .leave-half {
+    background: linear-gradient(90deg, navy 50%, #FFFFFF 50%);
+}
+
+.timesheet-management-area table tbody .legend-training {
+    background: #610b38;
+}
+
+.timesheet-management-area table tbody .legend-seminar {
+    background: #af53ea;
+}
+
+.timesheet-management-area table tbody .legend-travel {
+    background: #6aba54;
+}
+
+.timesheet-management-area table thead tr th.off-day {
+    background-color: #d6f5e6;
+}
+
+.timesheet-management-area table thead tr th.weekend-day {
+    background-color: #ccdded;
+}
+
+.timesheet-management-area table tbody tr td.off-day,
+.timesheet-management-area table tbody tr td.weekend-day{
+    background-color: #f9f9f9;
+}
+
+.timesheet-management-area table tbody tr td.empty-locked {
+    background-color: #d82e2e;
+}
+
+.timesheet-management-area table tbody tr td.save-as-draft {
+    background-color: #4c77a6;
+}
+
+.timesheet-management-area table tbody tr td.locked {
+    background-color: #aec2d8;
+}
+
+.timesheet-management-area table tbody > tr > td:first-child a > strong {
+    display: block;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.timesheet-management-area table tbody > tr > td:first-child a > span {
+    color: #8b8b8b;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 15px;
+    display: block;
+}
+
+.timesheet-management-area table tbody > tr > td:first-child a > span::before {
+    content: '';
+    border: none;
+}
+
+.timesheet-management-area table tbody > tr > td:first-child a {
+    line-height: 10px;
+}
+
+.timesheet-management-area table tbody tr td:first-child {
+    padding: 11px 10px 5px 10px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.timesheet-management-area table tbody tr td span::before {
+    height: 7px;
+    width: 100%;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+.timesheet-management-area table tbody tr td span:hover {
+    opacity: 0.7;
+}
+
+@media (min-width: 768px) {
+    #modal-brief-timesheet .modal-dialog {
+        width: 580px;
+    }
+}
+
+#modal-brief-timesheet .modal-body {
+    overflow-y: hidden !important;
+}
+
+/************************/
+
+.timesheet-month .single-month {
+    border: none;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 38px;
+    cursor: pointer;
+    width: 160px;
+}
+
+.timesheet-month .btn-prev,
+.timesheet-month .btn-next {
+    font-size: 26px;
+}
+
+#modal-brief-timesheet .act-sub {
+    display: block;
+    color: #999;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 11px;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#modal-brief-timesheet .act-main {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#modal-brief-timesheet table {
+    margin-bottom: 0;
+}
+
+#modal-brief-timesheet table thead {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+#modal-brief-timesheet table > thead > tr > th {
+    padding: 3px 8px;
+    border: none;
+}
+
+#modal-brief-timesheet table thead tr > th:first-child,
+#modal-brief-timesheet table tbody tr > td:first-child,
+#modal-brief-timesheet table tfoot tr > td:first-child {
+    text-align: left;
+}
+
+#modal-brief-timesheet table > tbody > tr > td:last-child,
+#modal-brief-timesheet table > tfoot {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#modal-brief-timesheet table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#modal-brief-timesheet table > tfoot {
+    background-color: #eaeaea;
+}
+
+.modal-timehsheet-title > span {
+    display: block;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.modal-timehsheet-title > span.modal-timestamp {
+    text-transform: uppercase;
+    color: #898989;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.modal-timehsheet-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#modal-brief-timesheet table > thead > tr > th:nth-child(2),
+#modal-brief-timesheet table > thead > tr > th:nth-child(3),
+#modal-brief-timesheet table > thead > tr > th:last-child,
+#modal-brief-timesheet table > tbody > tr > td:nth-child(2),
+#modal-brief-timesheet table > tbody > tr > td:nth-child(3),
+#modal-brief-timesheet table > tbody > tr > td:last-child,
+#modal-brief-timesheet table > tfoot > tr > td:nth-child(2),
+#modal-brief-timesheet table > tfoot > tr > td:nth-child(3),
+#modal-brief-timesheet table > tfoot > tr > td:last-child {
+    width: 60px;
+    text-align: center;
+}
+
+#modal-brief-timesheet table > tbody > tr > td:nth-child(2),
+#modal-brief-timesheet table > tbody > tr > td:nth-child(3),
+#modal-brief-timesheet table > tbody > tr > td:last-child,
+#modal-brief-timesheet table > tfoot > tr > td:nth-child(2),
+#modal-brief-timesheet table > tfoot > tr > td:nth-child(3),
+#modal-brief-timesheet table > tfoot > tr > td:last-child {
+    font-size: 16px;
+}
+
+#modal-brief-timesheet table tbody > tr > td:first-child {
+    max-width: 250px;
+}
+
+/* Modal add new service */
+
+.modal#add-new-service .modal-dialog {
+    width: 900px;
+}
+
+.modal#add-service-type .modal-dialog,
+.modal#add-service-area .modal-dialog {
+    width: 800px;
+}
+
+.modal#add-new-service .modal-dialog .modal-body,
+.modal#add-service-type .modal-dialog .modal-body,
+.modal#add-service-area .modal-dialog .modal-body {
+    padding-top: 0;
+}
+
+.modal#add-new-service .modal-body,
+.modal#add-service-type .modal-body {
+    overflow-y: hidden !important;
+}
+
+.modal .setting-table tr > td:last-child {
+    min-width: 125px;
+    text-align: center;
+}
+
+.modal#add-new-service .admin-add-list thead > tr > th:nth-child(3),
+.modal#add-new-service .admin-add-list tbody > tr > td:nth-child(3) {
+    width: 200px;
+}
+
+.modal .admin-add-list textarea {
+    font-size: 12px;
+    height: 35px;
+    min-height: 35px;
+}
+
+/* table add list in modal activity */
+
+.modal#add-service-type .admin-add-list thead > tr > th:first-child,
+.modal#add-service-type .admin-add-list tbody > tr > td:first-child {
+    min-width: 120px;
+    max-width: 120px;
+}
+
+.modal#add-service-type .admin-add-list thead > tr > th:nth-child(2),
+.modal#add-service-type .admin-add-list tbody > tr > td:nth-child(2) {
+    min-width: 180px;
+    max-width: 180px;
+}
+
+.modal#add-service-type .admin-add-list thead > tr > th:nth-child(3),
+.modal#add-service-type .admin-add-list tbody > tr > td:nth-child(3) {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.modal#add-service-type .setting-table tr > td:last-child {
+    min-width: 125px;
+}
+
+/* table add list in modal service area */
+
+.modal#add-service-area .admin-add-list thead > tr > th:first-child,
+.modal#add-service-area .admin-add-list tbody > tr > td:first-child {
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.modal#add-service-area .admin-add-list thead > tr > th:nth-child(2),
+.modal#add-service-area .admin-add-list tbody > tr > td:nth-child(2) {
+    min-width: 415px;
+    max-width: 415px;
+}
+
+.modal#add-service-area .setting-table tr > td:last-child {
+    min-width: 152px;
+}
+
+/************************** Error page *******************************/
+
+.page-error {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.page-error,
+.page-error-inner {
+    height: 100%;
+}
+
+.page-error-inner {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page-error .error-icon:after {
+    font-family: 'FontAwesome';
+    content: "\f071";
+    font-size: 135px;
+    color: #d82e2e;
+}
+
+.error-title {
+    color: #d82e2e;
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+.error-body {
+    color: #343434;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+/******** User Mangement ********/
+
+.fa.fa-refresh.spin {
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#user-management .user-update-status {
+    text-align: right;
+    float: left;
+    margin: 5px 10px 0 0;
+    line-height: 15px;
+}
+
+g.nv-lineChart g.nv-axisMin-x {
+    transform: translate(20px, 0);
+    -webkit-transform: translate(20px, 0);
+    -ms-transform: translate(20px, 0);
+}
+
+g.nv-lineChart g.value-label path {
+    stroke-width: 1px;
+    stroke-opacity: 0.5;
+    stroke: black;
+    fill: yellow;
+    fill-opacity: 1;
+}
+
+g.nv-lineChart g.value-label text {
+    fill: #7196bb;
+}
+
+g.nv-lineChart g.nv-scatterWrap g.nv-groups path.nv-point {
+    stroke-width: 7px !important;
+    fill-opacity: .95 !important;
+    stroke-opacity: .35 !important;
+}
+
+g.nv-lineChart g.nv-groups path.nv-line:hover {
+    stroke-opacity: 1 !important;
+    stroke-width: 3 !important;
+}

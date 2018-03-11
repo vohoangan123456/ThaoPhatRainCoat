@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Raincoat.BUS;
 using Raincoat.BE;
+using ThaoPhatRainCoat.Models;
 namespace ThaoPhatRainCoat.Controllers
 {
     public class ShopController : Controller
@@ -15,6 +16,14 @@ namespace ThaoPhatRainCoat.Controllers
         {
             List<ProductsBE> prodList = this.shopBUS.GetAllProducts();
             return View();
+        }
+
+        public JsonResult GetAllProducts()
+        {
+            var model = new ShopModel();
+            List<ProductsBE> prodList = this.shopBUS.GetAllProducts();
+            model.products = prodList;
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
     }
 }
