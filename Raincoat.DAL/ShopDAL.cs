@@ -16,5 +16,24 @@ namespace Raincoat.DAL
 
             return returnTable;
         }
+
+        public int CreateNewProduct(string name, int price)
+        {
+            SqlParameter[] paramList = new SqlParameter[2];
+            paramList[0] = DataProvider.AddParameters("@Name", SqlDbType.NVarChar, name);
+            paramList[1] = DataProvider.AddParameters("@Price", SqlDbType.BigInt, price);
+            int productId = this.ExecuteInsertQueryReturnId(Constants.CREATE_NEW_PRODUCT, paramList);
+            return productId;
+        }
+
+        public int UpdateProduct(int id, string name, int price)
+        {
+            SqlParameter[] paramList = new SqlParameter[3];
+            paramList[0] = DataProvider.AddParameters("@Id", SqlDbType.Int, id);
+            paramList[1] = DataProvider.AddParameters("@Name", SqlDbType.NVarChar, name);
+            paramList[2] = DataProvider.AddParameters("@Price", SqlDbType.BigInt, price);
+            int noOfSuccess = this.ExecuteUpdateQuery(Constants.UPDATE_PRODUCT, paramList);
+            return noOfSuccess;
+        }
     }
 }

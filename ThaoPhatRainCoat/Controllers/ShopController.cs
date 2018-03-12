@@ -14,7 +14,6 @@ namespace ThaoPhatRainCoat.Controllers
         // GET: Shop
         public ActionResult Index()
         {
-            List<ProductsBE> prodList = this.shopBUS.GetAllProducts();
             return View();
         }
 
@@ -24,6 +23,18 @@ namespace ThaoPhatRainCoat.Controllers
             List<ProductsBE> prodList = this.shopBUS.GetAllProducts();
             model.products = prodList;
             return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult CreateNewProduct(ProductsBE product)
+        {
+            int productId = this.shopBUS.CreateNewProduct(product);
+            return Json(productId, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult UpdateProduct(ProductsBE product)
+        {
+            bool isSuccess = this.shopBUS.UpdateProduct(product);
+            return Json(isSuccess, JsonRequestBehavior.AllowGet);
         }
     }
 }

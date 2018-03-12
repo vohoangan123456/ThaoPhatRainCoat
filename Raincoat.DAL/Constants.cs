@@ -12,5 +12,7 @@
 
         // Product procedures
         public const string GET_ALL_PRODUCTS = "GetAllProducts";
+        public const string CREATE_NEW_PRODUCT = "CreateNewProduct";
+        public const string UPDATE_PRODUCT = "UpdateProduct";
     }
 }

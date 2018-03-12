@@ -17,6 +17,16 @@ namespace Raincoat.BUS
             return TableToBE(table);
         }
 
+        public int CreateNewProduct(ProductsBE product)
+        {
+            int productId = shopDAL.CreateNewProduct(product.Name, product.Price);
+            return productId;
+        }
+        public bool UpdateProduct(ProductsBE product)
+        {
+            int noOfSuccess = shopDAL.UpdateProduct(product.Id, product.Name, product.Price);
+            return noOfSuccess > 0 ? true : false;
+        }
         private List<ProductsBE> TableToBE(DataTable table)
         {
             List<ProductsBE> returnBE = new List<ProductsBE>();

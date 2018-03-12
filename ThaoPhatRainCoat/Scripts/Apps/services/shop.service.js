@@ -19,27 +19,27 @@ appShopPage.service('shopService', function ($http) {
             }
         });
         return response;
+    },
+
+    this.createNewProduct = function (product) {
+        var response = $http({
+            method: 'post',
+            url: '/Shop/CreateNewProduct',
+            data: {
+                product: product
+            }
+        });
+        return response;
+    },
+
+    this.updateProduct = function (product) {
+        var response = $http({
+            method: 'post',
+            url: '/Shop/UpdateProduct',
+            data: {
+                product: product
+            }
+        });
+        return response;
     }
-
-    //this.createNewProduct = function (product) {
-    //    var response = $http({
-    //        method = 'POST',
-    //        url: '/Shop/CreateNewProduct',
-    //        data: {
-    //            product: product
-    //        }
-    //    });
-    //    return response;
-    //},
-
-    //this.updateProduct = function (product) {
-    //    var response = $http({
-    //        method = 'POST',
-    //        url: '/Shop/UpdateProduct',
-    //        data: {
-    //            product: product
-    //        }
-    //    });
-    //    return response;
-    //}
 });

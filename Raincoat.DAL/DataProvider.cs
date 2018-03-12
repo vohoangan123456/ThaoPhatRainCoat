@@ -322,6 +322,53 @@ namespace Raincoat.DAL
             return result;
         }
 
+        public int ExecuteInsertQueryReturnId(string storeName, SqlParameter[] sqlParameter)
+        {
+            logger.Debug("Start ExecuteInsertQuery");
+            int result = -1;
+            using (SqlConnection sqlConnection = new SqlConnection(GetConnectionString()))
+            {
+                // Open connection
+                OpenConnection(sqlConnection);
+
+                // Begin transaction.
+                SqlTransaction sqlTransaction = BeginTransaction(sqlConnection);
+
+                try
+                {
+                    SqlCommand command = CreateSqlCommand(storeName, sqlConnection, sqlParameter);
+                    command.CommandTimeout = 0;
+                    sqlDataAdapter.InsertCommand = command;
+                    command.Transaction = sqlTransaction;
+
+                    // Execute non query
+                    result = (int)command.ExecuteScalar();
+                    // Commit transaction
+                    CommitTransaction(sqlTransaction);
+                }
+                catch (Exception ex)
+                {
+                    // Write error log
+                    logger.ErrorFormat("{0} {1} : {2}", Constants.EXECUTE_INSERT_QUERY, storeName, ex.Message);
+
+                    // Rollback transaction
+                    RollbackTransaction(sqlTransaction);
+
+                    // Close connection
+                    CloseConnection(sqlConnection);
+
+                    throw ex;
+                }
+                finally
+                {
+                    // Close connection
+                    CloseConnection(sqlConnection);
+                }
+            }
+            logger.Debug("End ExecuteInsertQuery");
+            return result;
+        }
+
         /// <summary>
         /// ExecuteUpdateQuery
         /// </summary>

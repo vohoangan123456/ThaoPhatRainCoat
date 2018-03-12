@@ -1,13 +1,75 @@
 ﻿'use strict';
-appShopPage.controller('shopController', function ($scope, shopService) {
-
+appShopPage.controller('shopController', function ($scope, shopService, $interval, $timeout) {
+    //auto move next image after 5s
+    $interval(function () {
+        $('.moveNextCarousel').click();
+    }, 5000);
+    //the first method run when load shop page
     $scope.init = function () {
+        $scope.isShowNew = true;
+        $scope.searchKey = '';
         shopService.getAllProducts().then(function (result) {
             $scope.shopModel = result.data;
+            $scope.emptyProduct = result.data.productBE;
+            $scope.emptyProduct.isEditable = true;
             $scope.allProducts = $scope.shopModel.products;
+            $scope.selectedProduct = $scope.allProducts.length > 0 ?
+                $scope.allProducts[0] : $scope.emptyProduct;
+
+            $timeout(function () {
+                $(".product-grid").css("height", $(".product-grid").width() * 3/2);
+            }, 10);
         });
     }
-
+    //action add new product
+    $scope.addNewProduct = function () {
+        $scope.isShowNew = false;
+        var newProduct = angular.copy($scope.emptyProduct);
+        $scope.selectedProduct = newProduct;
+        $scope.allProducts.unshift(newProduct);
+        $timeout(function () {
+            $('.selected-product').removeClass('selected-product');
+            $('.product-grid').first().addClass('selected-product');
+            $scope.$apply();
+        }, 10);
+    }
+    //action accept create new product
+    $scope.confirmSaveNewProduct = function () {
+        $scope.isShowNew = true;
+        shopService.createNewProduct($scope.allProducts[0]).then(function (result) {
+            $scope.allProducts[0].Id = result.data;
+            $scope.allProducts[0].isEditable = false;
+            $scope.refreshPage();
+        });
+    }
+    //action edit a product
+    $scope.editProduct = function () {
+    }
+    //action delete a product
+    $scope.deleteProduct = function () {
+    }
+    //action select product
+    $scope.selectProduct = function (element, product) {
+        $('.selected-product').removeClass('selected-product');
+        $(element.currentTarget).addClass('selected-product');
+        $scope.selectedProduct = product;
+    }
+    //action search products
+    $scope.searchProduct = function () {
+        //alert($scope.searchKey);
+    }
+    //select sort by criterion
+    $scope.sortBy = function (element) {
+        var criterion = $(element.currentTarget).attr('name');
+        var newValueForButton = "Sorting by: " + $(element.currentTarget).find('span').html() + " <i class='fa fa-caret-down'></i>";
+        $('#sort-criterion').html(newValueForButton);
+        //handle the action sorting
+    }
+    $scope.refreshPage = function () {
+        $timeout(function () {
+            $scope.$apply();
+        }, 0);
+    }
 });
 
 $(function () {
@@ -16,7 +78,6 @@ $(function () {
         fullWidth: true,
         indicators: false
     });
-
 
     // move next carousel
     $('.moveNextCarousel').click(function (e) {
@@ -31,55 +92,18 @@ $(function () {
         e.stopPropagation();
         $('.carousel').carousel('prev');
     });
-    $(".product-grid").css("height", $(".product-grid").width());
-    var dropdown = document.getElementsByClassName("sort-by");
-    var i;
 
-    for (i = 0; i < dropdown.length; i++) {
-        dropdown[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.visibility === "hidden" || dropdownContent.style.visibility === "") {
-                dropdownContent.style.visibility = "visible";
-            } else {
-                dropdownContent.style.visibility = "hidden";
-            }
-        });
-    }
+    // dropdown list to sort by
+    //var dropdown = document.getElementsByClassName("sort-by");
+    //for (var i = 0; i < dropdown.length; i++) {
+    //    dropdown[i].addEventListener("click", function () {
+    //        this.classList.toggle("active");
+    //        var dropdownContent = this.nextElementSibling;
+    //        if (dropdownContent.style.visibility === "hidden" || dropdownContent.style.visibility === "") {
+    //            dropdownContent.style.visibility = "visible";
+    //        } else {
+    //            dropdownContent.style.visibility = "hidden";
+    //        }
+    //    });
+    //}
 });
-//function doAnimations(elems) {
-//    //Cache the animationend event in a variable
-//    var animEndEv = 'webkitAnimationEnd animationend';
-
-//    elems.each(function () {
-//        var $this = $(this),
-//            $animationType = $this.data('animation');
-//        $this.addClass($animationType).one(animEndEv, function () {
-//            $this.removeClass($animationType);
-//        });
-//    });
-//}
-
-//Variables on page load 
-//var $myCarousel = $('#carousel-example-generic'),
-//    $firstAnimatingElems = $myCarousel.find('.item:first').find("[data-animation ^= 'animated']");
-
-////Initialize carousel 
-//$myCarousel.carousel();
-
-////Animate captions in first slide on page load 
-//doAnimations($firstAnimatingElems);
-
-////Pause carousel  
-//$myCarousel.carousel('pause');
-
-
-////Other slides to be animated on carousel slide event 
-//$myCarousel.on('slide.bs.carousel', function (e) {
-//    var $animatingElems = $(e.relatedTarget).find("[data-animation ^= 'animated']");
-//    doAnimations($animatingElems);
-//});
-//$('#carousel-example-generic').carousel({
-//    interval: 3000,
-//    pause: "false"
-//});
