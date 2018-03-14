@@ -70,9 +70,41 @@ appShopPage.controller('shopController', function ($scope, shopService, $interva
             $scope.$apply();
         }, 0);
     }
-});
 
+    $scope.changeImage = function (element) {
+        if (element.files && element.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(element.previousElementSibling).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(element.files[0]);
+        }
+    }
+
+    function getProducts() {
+        shopService.getProductsByCondition()
+            .then(function (result) {
+            });
+    }
+});
+//$("#input").change(function () {
+//    readURL(this);
+//});
+
+//function readURL(input) {
+//    if (input.files && input.files[0]) {
+//        var reader = new FileReader();
+
+//        reader.onload = function (e) {
+//            $('.image-avatar').attr('src', e.target.result);
+//        }
+//        reader.readAsDataURL(input.files[0]);
+//    }
+//}
 $(function () {
+    
+
     // start carrousel
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,
@@ -92,18 +124,4 @@ $(function () {
         e.stopPropagation();
         $('.carousel').carousel('prev');
     });
-
-    // dropdown list to sort by
-    //var dropdown = document.getElementsByClassName("sort-by");
-    //for (var i = 0; i < dropdown.length; i++) {
-    //    dropdown[i].addEventListener("click", function () {
-    //        this.classList.toggle("active");
-    //        var dropdownContent = this.nextElementSibling;
-    //        if (dropdownContent.style.visibility === "hidden" || dropdownContent.style.visibility === "") {
-    //            dropdownContent.style.visibility = "visible";
-    //        } else {
-    //            dropdownContent.style.visibility = "hidden";
-    //        }
-    //    });
-    //}
 });

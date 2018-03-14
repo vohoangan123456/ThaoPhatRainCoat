@@ -70,7 +70,7 @@
                 <li ng-click="sortBy($event)" name="4"><span>Name - Z to A</span></li>
             </ul>
 
-            <button id="sort-criterion" class="dropdown-button w3-btn w3-round-xxlarge sort-by waves-effect waves-light w3-margin-left" 
+            <button id="sort-criterion" class="dropdown-button w3-btn w3-round-xxlarge sort-by waves-effect waves-light w3-margin-left"
                     data-activates="dropdown">
                 Sort by
                 <i class="fa fa-caret-down"></i>
@@ -78,15 +78,19 @@
         </div>
     </div>
     <div class="grid-list-product">
-        <div ng-repeat="product in allProducts" 
+        <div ng-repeat="product in allProducts"
              class="product-grid"
              ng-click="selectProduct($event, product)">
             <div class="product-images padding-left">
-                <img class="product-image" src="~/Content/images/books.jpg" />
+                @*<img class="product-image" src="~/Content/images/books.jpg" />*@
+                <label class="label" data-toggle="tooltip" title="Change your avatar">
+                    <img class="rounded image-avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                    <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
+                </label>
             </div>
             <div class="product-name padding-left">
                 <span ng-if="!product.isEditable">{{product.Name}}</span>
-                <input type="text" ng-if="product.isEditable" ng-model="product.Name" placeholder="product's name"/>
+                <input type="text" ng-if="product.isEditable" ng-model="product.Name" placeholder="product's name" />
             </div>
             <div class="product-price padding-left">
                 <span ng-if="!product.isEditable">{{product.Price | currency: "₫ ": 3}}</span>
