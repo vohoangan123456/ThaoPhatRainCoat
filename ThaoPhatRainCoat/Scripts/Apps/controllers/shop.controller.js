@@ -1,23 +1,33 @@
 ﻿'use strict';
-appShopPage.controller('shopController', function ($scope, shopService, $interval, $timeout) {
+appShopPage.controller('shopController', function ($scope, $mdDialog, shopService, $interval, $timeout) {
     //auto move next image after 5s
     $interval(function () {
         $('.moveNextCarousel').click();
     }, 5000);
     //the first method run when load shop page
     $scope.init = function () {
+        convertImgToBase64();
         $scope.isShowNew = true;
         $scope.searchKey = '';
+        $scope.productSize = {};
+        $scope.status = '  ';
+        $scope.customFullscreen = false;
         shopService.getAllProducts().then(function (result) {
             $scope.shopModel = result.data;
             $scope.emptyProduct = result.data.productBE;
             $scope.emptyProduct.isEditable = true;
             $scope.allProducts = $scope.shopModel.products;
             $scope.selectedProduct = $scope.allProducts.length > 0 ?
-                $scope.allProducts[0] : $scope.emptyProduct;
+                $scope.allProducts[0] : angular.copy($scope.emptyProduct);
 
             $timeout(function () {
-                $(".product-grid").css("height", $(".product-grid").width() * 3/2);
+                $(".product-grid").css("height", $(".product-grid").width() * 5 / 3);
+                $scope.productSize = {
+                    height: $(".product-grid").height(),
+                    width: $(".product-grid").width()
+                };
+                $('.image-avatar').css('width', $(".product-grid").width())
+                    .css('height', $(".product-grid").width());
             }, 10);
         });
     }
@@ -71,15 +81,60 @@ appShopPage.controller('shopController', function ($scope, shopService, $interva
         }, 0);
     }
 
-    $scope.changeImage = function (element) {
+    $scope.changeImage = function (element, product) {
         if (element.files && element.files[0]) {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $(element.previousElementSibling).attr('src', e.target.result);
+                $(element.previousElementSibling)
+                    .attr('src', e.target.result)
+                    .attr('height', $scope.productSize.width)
+                    .attr('width', $scope.productSize.width);
+                $scope.selectedProduct.ImageValue = e.target.result;
+                //$timeout(function () {
+                //    $scope.$apply();
+                //}, 10);
             }
-            reader.readAsDataURL(element.files[0]);
+            var dataImage = reader.readAsDataURL(element.files[0]);
         }
+    }
+
+    //isEditMode = true: edit
+    //isEditMode = false: create
+    $scope.showAdvanced = function (ev, isEditMode) {
+        $mdDialog.show({
+            controller: DialogController,
+            templateUrl: 'createUpdate.tmpl.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: true,
+            locals: {
+                selectedProduct: isEditMode ? $scope.selectedProduct : angular.copy($scope.emptyProduct),
+                isEditMode: isEditMode,
+                popupSize: $scope.productSize
+            }
+        })
+        .then(function (answer, selectedProduct) {
+            if (answer) {
+                $scope.selectedProduct = selectedProduct;
+                $scope.allProducts.unshift($scope.selectedProduct);
+            }
+        });
+    };
+    function DialogController($scope, $mdDialog, selectedProduct) {
+        $scope.selectedProduct = selectedProduct;
+        $scope.hide = function () {
+            $mdDialog.hide();
+        };
+
+        $scope.cancel = function () {
+            $mdDialog.cancel();
+        };
+
+        $scope.answer = function (answer) {
+            $mdDialog.hide(answer);
+        };
     }
 
     function getProducts() {
@@ -87,24 +142,26 @@ appShopPage.controller('shopController', function ($scope, shopService, $interva
             .then(function (result) {
             });
     }
+
+    function convertImgToBase64() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "Content/images/default-image.jpg", true);
+        xhr.responseType = "blob";
+        xhr.onload = function (e) {
+            console.log(this.response);
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var res = event.target.result;
+                $scope.emptyProduct.ImageValue = res;
+            }
+            var file = this.response;
+            reader.readAsDataURL(file)
+        };
+        xhr.send();
+    }
 });
-//$("#input").change(function () {
-//    readURL(this);
-//});
 
-//function readURL(input) {
-//    if (input.files && input.files[0]) {
-//        var reader = new FileReader();
-
-//        reader.onload = function (e) {
-//            $('.image-avatar').attr('src', e.target.result);
-//        }
-//        reader.readAsDataURL(input.files[0]);
-//    }
-//}
 $(function () {
-    
-
     // start carrousel
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,

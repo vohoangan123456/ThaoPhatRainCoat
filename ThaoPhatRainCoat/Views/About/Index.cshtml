@@ -2,194 +2,55 @@
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Cropper.js</title>
-    <link rel="stylesheet" href="~/Content/cropper.min.css">
-    <style>
-        .label {
-            cursor: pointer;
-        }
-
-        .progress {
-            display: none;
-            margin-bottom: 1rem;
-        }
-
-        .alert {
-            display: none;
-        }
-
-        .img-container img {
-            max-width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Upload cropped image to server</h1>
-        <label class="label" data-toggle="tooltip" title="Change your avatar">
-            <img class="rounded" id="avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
-            <input type="file" class="sr-only" id="input" name="image" accept="image/*">
-        </label>
-        @*<div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
-            </div>
-            <div class="alert" role="alert"></div>
-            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="modalLabel">Crop the image</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="img-container">
-                                <img id="image" src="https://avatars0.githubusercontent.com/u/3456749">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" id="crop">Crop</button>
-                        </div>
-                    </div>
-                </div>
-            </div>*@
+<div ng-controller="AppCtrl" class="md-padding dialogdemoBasicUsage" id="popupContainer" ng-cloak="" ng-app="MyApp">
+    <div class="dialog-demo-content" layout="row" layout-wrap="" layout-margin="" layout-align="center">
+        <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+            Custom Dialog
+        </md-button>        
     </div>
-    @*<script src="~/Scripts/jquery.min.js"></script>*@
-    <script src="~/Content/js/cropper.min.js"></script>
-    <script>
-        $("#input").change(function () {
-            readURL(this);
-        });
-
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#avatar').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-            //window.addEventListener('DOMContentLoaded', function () {
-            //    var avatar = document.getElementById('avatar');
-            //    var image = document.getElementById('image');
-            //    var input = document.getElementById('input');
-            //    var $progress = $('.progress');
-            //    var $progressBar = $('.progress-bar');
-            //    var $alert = $('.alert');
-            //    var $modal = $('#modal');
-            //    var cropper;
-
-            //    //$('[data-toggle="tooltip"]').tooltip();
-
-            //    //input.addEventListener('change', function (e) {
-            //    //    var files = e.target.files;
-            //    //    var done = function (url) {
-            //    //        input.value = '';
-            //    //        image.src = url;
-            //    //       // $alert.hide();
-            //    //       // $modal.modal('show');
-            //    //    };
-            //    //    var reader;
-            //    //    var file;
-            //    //    var url;
-
-            //    //    if (files && files.length > 0) {
-            //    //        file = files[0];
-
-            //    //        if (URL) {
-            //    //            done(URL.createObjectURL(file));
-            //    //        } else if (FileReader) {
-            //    //            reader = new FileReader();
-            //    //            reader.onload = function (e) {
-            //    //                done(reader.result);
-            //    //            };
-            //    //            reader.readAsDataURL(file);
-            //    //        }
-            //    //    }
-            //    //});
-
-            //    //$modal.on('shown.bs.modal', function () {
-            //    //    cropper = new Cropper(image, {
-            //    //        aspectRatio: 1,
-            //    //        viewMode: 3,
-            //    //    });
-            //    //}).on('hidden.bs.modal', function () {
-            //    //    cropper.destroy();
-            //    //    cropper = null;
-            //    //});
-
-            //    //document.getElementById('crop').addEventListener('click', function () {
-            //    //    var initialAvatarURL;
-            //    //    var canvas;
-
-            //    //    $modal.modal('hide');
-
-            //    //    if (cropper) {
-            //    //        canvas = cropper.getCroppedCanvas({
-            //    //            width: 160,
-            //    //            height: 160,
-            //    //        });
-
-            //    //        initialAvatarURL = avatar.src;
-            //    //        avatar.src = canvas.toDataURL();
-            //    //        $progress.show();
-            //    //        $alert.removeClass('alert-success alert-warning');
-            //    //        canvas.toBlob(function (blob) {
-            //    //            var formData = new FormData();
-
-            //    //            formData.append('avatar', blob);
-
-            //    //            $.ajax('https://jsonplaceholder.typicode.com/posts', {
-            //    //                method: 'POST',
-            //    //                data: formData,
-            //    //                processData: false,
-            //    //                contentType: false,
-
-            //    //                xhr: function () {
-            //    //                    var xhr = new XMLHttpRequest();
-
-            //    //                    xhr.upload.onprogress = function (e) {
-            //    //                        var percent = '0';
-            //    //                        var percentage = '0%';
-
-            //    //                        if (e.lengthComputable) {
-            //    //                            percent = Math.round((e.loaded / e.total) * 100);
-            //    //                            percentage = percent + '%';
-            //    //                            $progressBar.width(percentage).attr('aria-valuenow', percent).text(percentage);
-            //    //                        }
-            //    //                    };
-
-            //    //                    return xhr;
-            //    //                },
-
-            //    //                success: function () {
-            //    //                    $alert.show().addClass('alert-success').text('Upload success');
-            //    //                },
-
-            //    //                error: function () {
-            //    //                    avatar.src = initialAvatarURL;
-            //    //                    $alert.show().addClass('alert-warning').text('Upload error');
-            //    //                },
-
-            //    //                complete: function () {
-            //    //                    $progress.hide();
-            //    //                },
-            //    //            });
-            //    //        });
-            //    //    }
-            //    //});
-            //});
+    <script type="text/ng-template" id="dialog1.tmpl.html">
+        <md-dialog aria-label="Mango (Fruit)">
+            <form ng-cloak>
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Mango (Fruit)</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content>
+                    <div class="md-dialog-content">
+                        <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
+                        <p>
+                            The mango is a juicy stone fruit belonging to the genus Mangifera, consisting of numerous tropical fruiting trees, cultivated mostly for edible fruit. The majority of these species are found in nature as wild mangoes. They all belong to the flowering plant family Anacardiaceae. The mango is native to South and Southeast Asia, from where it has been distributed worldwide to become one of the most cultivated fruits in the tropics.
+                        </p>
+                        <img style="margin: auto; max-width: 100%;" alt="Lush mango tree" src="img/mangues.jpg">
+                        <p>
+                            The highest concentration of Mangifera genus is in the western part of Malesia (Sumatra, Java and Borneo) and in Burma and India. While other Mangifera species (e.g. horse mango, M. foetida) are also grown on a more localized basis, Mangifera indica&mdash;the "common mango" or "Indian mango"&mdash;is the only mango tree commonly cultivated in many tropical and subtropical regions.
+                        </p>
+                        <p>
+                            It originated in Indian subcontinent (present day India and Pakistan) and Burma. It is the national fruit of India, Pakistan, and the Philippines, and the national tree of Bangladesh. In several cultures, its fruit and leaves are ritually used as floral decorations at weddings, public celebrations, and religious ceremonies.
+                        </p>
+                    </div>
+                </md-dialog-content>
+                <md-dialog-actions layout="row">
+                    <md-button href="http://en.wikipedia.org/wiki/Mango" target="_blank" md-autofocus>
+                        More on Wikipedia
+                    </md-button>
+                    <span flex></span>
+                    <md-button ng-click="answer('not useful')">
+                        Not Useful
+                    </md-button>
+                    <md-button ng-click="answer('useful')">
+                        Useful
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
     </script>
-</body>
-</html>
+</div>
+@section scripts{
+    <script src="~/Scripts/Apps/controllers/about.controller.js"></script>
+}
