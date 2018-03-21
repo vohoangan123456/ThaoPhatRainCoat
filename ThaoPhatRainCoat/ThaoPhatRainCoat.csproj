@@ -190,6 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\angular-material.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\cropper.min.css" />
@@ -214,6 +215,7 @@
     <Content Include="Content\fonts\OpenSans-Regular-webfont.svg" />
     <Content Include="Content\fonts\OpenSans-Semibold-webfont.svg" />
     <Content Include="Content\images\books.jpg" />
+    <Content Include="Content\images\default-image.jpg" />
     <Content Include="Content\images\search-icon.png" />
     <Content Include="Content\images\searchicon.png" />
     <Content Include="Content\js\cropper.min.js" />
@@ -225,8 +227,14 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-material.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\Apps\app.js" />
+    <Content Include="Scripts\Apps\controllers\about.controller.js" />
     <Content Include="Scripts\Apps\controllers\shop.controller.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -293,7 +301,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Views\About\test.html" />
+    <Content Include="Scripts\svg-assets-cache.js" />
+    <Content Include="Views\About\dialog1.tmpl.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

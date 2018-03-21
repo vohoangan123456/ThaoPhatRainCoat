@@ -1,58 +1,57 @@
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\Raincoat.BE.dll.config
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\Raincoat.BE.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\Raincoat.BE.pdb
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csc.exe
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csc.exe.config
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csc.rsp
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csi.exe
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csi.exe.config
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csi.rsp
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CSharp.Core.targets
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.VisualBasic.Core.targets
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.Win32.Primitives.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.AppContext.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Collections.Immutable.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Console.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Diagnostics.Process.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Diagnostics.StackTrace.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.Compression.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.FileSystem.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.FileSystem.Primitives.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.Pipes.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Reflection.Metadata.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.AccessControl.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Claims.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.Encoding.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.Primitives.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Principal.Windows.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Text.Encoding.CodePages.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Threading.Thread.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.ValueTuple.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.ReaderWriter.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.XmlDocument.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.XPath.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.XPath.XDocument.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\vbc.exe
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\vbc.exe.config
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\vbc.rsp
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\VBCSCompiler.exe
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\VBCSCompiler.exe.config
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.csprojResolveAssemblyReference.cache
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.csproj.CoreCompileInputs.cache
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.csproj.CopyComplete
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.dll
-G:\program\Git_All_Repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.pdb
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\Raincoat.BE.dll.config
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\Raincoat.BE.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\Raincoat.BE.pdb
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csc.exe
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csc.exe.config
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csc.rsp
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csi.exe
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csi.exe.config
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\csi.rsp
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.AppContext.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Collections.Immutable.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Console.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Diagnostics.Process.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.Compression.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.FileSystem.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.IO.Pipes.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Reflection.Metadata.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.AccessControl.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Claims.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Security.Principal.Windows.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Threading.Thread.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.ValueTuple.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.XmlDocument.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.XPath.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\vbc.exe
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\vbc.exe.config
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\vbc.rsp
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\VBCSCompiler.exe
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\roslyn\VBCSCompiler.exe.config
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.csprojResolveAssemblyReference.cache
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.csproj.CoreCompileInputs.cache
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.dll
+D:\My private workspace\Main-repository\ThaoPhatRainCoat\Raincoat.BE\obj\Debug\Raincoat.BE.pdb

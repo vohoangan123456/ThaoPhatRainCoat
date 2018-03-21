@@ -27,28 +27,33 @@
         <ul class="top-control-bar-ul">
             <li>
                 <a class="waves-effect waves-light btn btn-style-top-bar btn-new"
-                   ng-click="addNewProduct()"
-                   ng-if="isShowNew">
+                   ng-click="showAdvanced($event, false)"
+                   @*ng-if="isShowNew"*@>
                     <i class="fa fa-plus"></i> New
                 </a>
-                <a class="waves-effect waves-light btn btn-style-top-bar btn-save"
+                @*<a class="waves-effect waves-light btn btn-style-top-bar btn-save"
                    ng-click="confirmSaveNewProduct()"
                    ng-if="!isShowNew">
                     <i class="fa fa-save"></i> Save
-                </a>
+                </a>*@
             </li>
-            <li>
+            @*<li>
                 <a class="waves-effect waves-light btn btn-style-top-bar btn-edit"
-                   ng-click="editProduct()">
+                   ng-click="showAdvanced($event, false)">
                     <i class="fa fa-edit"></i> Edit
                 </a>
             </li>
             <li>
                 <a class="waves-effect waves-light btn btn-style-top-bar btn-delete"
-                   ng-click="deleteProduct()">
+                   ng-click="showAdvanced($event, false)">
                     <i class="fa fa-remove"></i> Delete
                 </a>
             </li>
+            <li>
+                <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
+                    Custom Dialog
+                </md-button>
+            </li>*@
         </ul>
     </div>
     <div class="search-bar">
@@ -81,10 +86,10 @@
         <div ng-repeat="product in allProducts"
              class="product-grid"
              ng-click="selectProduct($event, product)">
-            <div class="product-images padding-left">
+            <div class="product-image padding-left">
                 @*<img class="product-image" src="~/Content/images/books.jpg" />*@
                 <label class="label" data-toggle="tooltip" title="Change your avatar">
-                    <img class="rounded image-avatar" src="https://avatars0.githubusercontent.com/u/3456749?s=160" alt="avatar">
+                    <img class="rounded image-avatar" ng-src="{{product.ImageValue}}" alt="avatar">
                     <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
                 </label>
             </div>
@@ -98,6 +103,46 @@
             </div>
         </div>
     </div>
+
+    <script type="text/ng-template" id="createUpdate.tmpl.html">
+        <md-dialog aria-label="Mango (Fruit)" class="dialog-template">
+            <form ng-cloak class="dialog-form">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>{{isEditMode ? 'Edit product' : 'Create new product'}}</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="cancel()">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content>
+                    <div class="md-dialog-content">
+                        <div class="product-image padding-left" style="height: 500px">
+                            <label class="label" data-toggle="tooltip" title="Choose the product's image">
+                                <img class="rounded image-avatar" ng-src="{{selectedProduct.ImageValue}}" alt="avatar">
+                                <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
+                            </label>
+                        </div>
+                        <div class="product-name padding-left">
+                            <input type="text" ng-model="selectedProduct.Name" placeholder="product's name" />
+                        </div>
+                        <div class="product-price padding-left">
+                            <input type="number" ng-model="selectedProduct.Price" />
+                        </div>
+                    </div>
+                </md-dialog-content>
+                <md-dialog-actions layout="row">
+                    <md-button ng-click="answer(true, selectedProduct)">
+                        Save
+                    </md-button>
+                    <md-button ng-click="answer(false)">
+                        Cancel
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </script>
 </div>
 @section scripts{
     <script src="~/Scripts/Apps/controllers/shop.controller.js"></script>

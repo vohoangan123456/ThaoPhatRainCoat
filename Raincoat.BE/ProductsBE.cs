@@ -14,6 +14,7 @@ namespace Raincoat.BE
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public bool isEditable { get; set; }
+        public string ImageValue { get; set; }
 
         public ProductsBE()
         {
@@ -24,6 +25,7 @@ namespace Raincoat.BE
             CreatedDate = DateTime.Today;
             CreatedBy = string.Empty;
             isEditable = false;
+            ImageValue = string.Empty;
         }
     }
 }

@@ -1,5 +1,6 @@
-﻿var appShopPage = angular.module("appShopPage", []);
+﻿var appShopPage = angular.module("appShopPage", ['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 var appHomePage = angular.module("appHomePage", []);
+var appAboutPage = angular.module("appAboutPage", []);
 
 /*------------------HELP ANGULARJS WORK WELL WITH BOOTSTRAP SELECT------------------  
 ---- Author: LinhNV 

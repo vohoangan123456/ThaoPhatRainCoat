@@ -19,12 +19,12 @@ namespace Raincoat.BUS
 
         public int CreateNewProduct(ProductsBE product)
         {
-            int productId = shopDAL.CreateNewProduct(product.Name, product.Price);
+            int productId = shopDAL.CreateNewProduct(product.Name, product.Price, product.ImageValue);
             return productId;
         }
         public bool UpdateProduct(ProductsBE product)
         {
-            int noOfSuccess = shopDAL.UpdateProduct(product.Id, product.Name, product.Price);
+            int noOfSuccess = shopDAL.UpdateProduct(product.Id, product.Name, product.Price, product.ImageValue);
             return noOfSuccess > 0 ? true : false;
         }
         private List<ProductsBE> TableToBE(DataTable table)
@@ -50,6 +50,9 @@ namespace Raincoat.BUS
                     : new DateTime();
                 be.CreatedBy = row.Table.Columns.Contains("CreatedBy")
                     ? DataProvider.GetDBString(row, "CreatedBy")
+                    : string.Empty;
+                be.ImageValue = row.Table.Columns.Contains("ImageValue")
+                    ? DataProvider.GetDBString(row, "ImageValue")
                     : string.Empty;
                 returnBE.Add(be);
             }

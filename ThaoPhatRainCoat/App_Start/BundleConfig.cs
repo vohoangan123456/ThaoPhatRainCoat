@@ -23,10 +23,17 @@ namespace ThaoPhatRainCoat
                       "~/Content/js/cropper.min.js"));
             bundles.Add(new ScriptBundle("~/bundles/Angularjs").Include(
                 "~/Scripts/angular.min.js",
+                "~/Scripts/angular-animate.min.js",
+                "~/Scripts/angular-route.min.js",
+                "~/Scripts/angular-aria.min.js",
+                "~/Scripts/angular-messages.min.js",
+                "~/Scripts/svg-assets-cache.js",
+                "~/Scripts/angular-material.js",
                 "~/Scripts/Apps/app.js"
                 ));
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/angular-material.css",
                       "~/Content/site.css",
                       "~/Content/font-awesome.min.css",
                       "~/Content/w3.css",
