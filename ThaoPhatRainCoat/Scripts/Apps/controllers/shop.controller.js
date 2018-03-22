@@ -99,6 +99,8 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
         }
     }
 
+    $scope.editProduct = function (ev, product) {
+    }
     //isEditMode = true: edit
     //isEditMode = false: create
     $scope.showAdvanced = function (ev, isEditMode) {
