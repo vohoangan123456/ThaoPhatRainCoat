@@ -6,8 +6,6 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
     }, 5000);
     //the first method run when load shop page
     $scope.init = function () {
-        convertImgToBase64();
-        $scope.isShowNew = true;
         $scope.searchKey = '';
         $scope.productSize = {};
         $scope.status = '  ';
@@ -15,11 +13,11 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
         shopService.getAllProducts().then(function (result) {
             $scope.shopModel = result.data;
             $scope.emptyProduct = result.data.productBE;
-            $scope.emptyProduct.isEditable = true;
+            //$scope.emptyProduct.isEditable = true;
             $scope.allProducts = $scope.shopModel.products;
             $scope.selectedProduct = $scope.allProducts.length > 0 ?
                 $scope.allProducts[0] : angular.copy($scope.emptyProduct);
-
+            convertImgToBase64();
             $timeout(function () {
                 $(".product-grid").css("height", $(".product-grid").width() * 5 / 3);
                 $scope.productSize = {
@@ -31,27 +29,7 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
             }, 10);
         });
     }
-    //action add new product
-    //$scope.addNewProduct = function () {
-    //    $scope.isShowNew = false;
-    //    var newProduct = angular.copy($scope.emptyProduct);
-    //    $scope.selectedProduct = newProduct;
-    //    $scope.allProducts.unshift(newProduct);
-    //    $timeout(function () {
-    //        $('.selected-product').removeClass('selected-product');
-    //        $('.product-grid').first().addClass('selected-product');
-    //        $scope.$apply();
-    //    }, 10);
-    //}
-    ////action accept create new product
-    //$scope.confirmSaveNewProduct = function () {
-    //    $scope.isShowNew = true;
-    //    shopService.createNewProduct($scope.allProducts[0]).then(function (result) {
-    //        $scope.allProducts[0].Id = result.data;
-    //        $scope.allProducts[0].isEditable = false;
-    //        $scope.refreshPage();
-    //    });
-    //}
+
     //action edit a product
     $scope.editProduct = function () {
     }
@@ -91,9 +69,6 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
                     .attr('height', $scope.productSize.width)
                     .attr('width', $scope.productSize.width);
                 $scope.selectedProduct.ImageValue = e.target.result;
-                //$timeout(function () {
-                //    $scope.$apply();
-                //}, 10);
             }
             var dataImage = reader.readAsDataURL(element.files[0]);
         }
@@ -117,18 +92,44 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
                 popupSize: $scope.productSize
             }
         })
-        .then(function (answer, selectedProduct) {
-            if (answer) {
-                $scope.selectedProduct = selectedProduct;
-                $scope.allProducts.unshift($scope.selectedProduct);
+        .then(function (answer) {
+            if (answer.answer) {
+                $scope.selectedProduct = answer.selectedProduct;
+                if (answer.selectedProduct.Id <= 0) {
+                    $scope.allProducts.unshift($scope.selectedProduct);
+                    shopService.createNewProduct($scope.selectedProduct).then(function (result) {
+                        $scope.allProducts[0].Id = result.data;
+                        $timeout(function () {
+                            $('.selected-product').removeClass('selected-product');
+                            $('.product-grid').first().addClass('selected-product');
+                            $('.image-avatar').first()
+                                .css('width', $(".product-grid").width())
+                                .css('height', $(".product-grid").width());
+                            $scope.$apply();
+                        }, 10);
+                    });
+                } else {
+                    shopService.updateProduct($scope.selectedProduct).then(function (result) {});
+                }
+            }
+            if (answer.deleted)
+            {
+                shopService.deleteProduct($scope.selectedProduct.Id).then(function (result) {
+                    $scope.allProducts = $scope.allProducts.filter(function (obj) {
+                        return obj.Id !== $scope.selectedProduct.Id;
+                    });
+                    $scope.selectedProduct = $scope.allProducts.length > 0 ?
+                        $scope.allProducts[0] : null;
+                });
             }
         });
     };
-    function DialogController($scope, $mdDialog, selectedProduct) {
+    function DialogController($scope, $mdDialog, selectedProduct, isEditMode) {
         $scope.selectedProduct = selectedProduct;
+        $scope.isEditMode = isEditMode;
         $scope.productSize = {
             height: 800,
-            width: 400
+            width: 230
         };
         $scope.hide = function () {
             $mdDialog.hide();
@@ -138,9 +139,23 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
             $mdDialog.cancel();
         };
 
-        $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
+        $scope.answer = function (answer, selectedProduct) {
+            var result = {
+                deleted: false,
+                answer: answer,
+                selectedProduct: selectedProduct
+            };
+            $mdDialog.hide(result);
         };
+
+        $scope.delete = function () {
+            var result = {
+                deleted: true,
+                answer: null
+            }
+            $mdDialog.hide(result);
+        };
+
         $scope.changeImage = function (element, product) {
             if (element.files && element.files[0]) {
                 var reader = new FileReader();

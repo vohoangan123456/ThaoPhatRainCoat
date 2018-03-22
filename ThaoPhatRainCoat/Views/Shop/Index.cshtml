@@ -26,34 +26,10 @@
     <div class="top-control-bar">
         <ul class="top-control-bar-ul">
             <li>
-                <a class="waves-effect waves-light btn btn-style-top-bar btn-new"
-                   ng-click="showAdvanced($event, false)"
-                   @*ng-if="isShowNew"*@>
+                <a class="waves-effect waves-light btn btn-style-top-bar btn-new" ng-click="showAdvanced($event, false)">
                     <i class="fa fa-plus"></i> New
                 </a>
-                @*<a class="waves-effect waves-light btn btn-style-top-bar btn-save"
-                   ng-click="confirmSaveNewProduct()"
-                   ng-if="!isShowNew">
-                    <i class="fa fa-save"></i> Save
-                </a>*@
             </li>
-            @*<li>
-                <a class="waves-effect waves-light btn btn-style-top-bar btn-edit"
-                   ng-click="showAdvanced($event, false)">
-                    <i class="fa fa-edit"></i> Edit
-                </a>
-            </li>
-            <li>
-                <a class="waves-effect waves-light btn btn-style-top-bar btn-delete"
-                   ng-click="showAdvanced($event, false)">
-                    <i class="fa fa-remove"></i> Delete
-                </a>
-            </li>
-            <li>
-                <md-button class="md-primary md-raised" ng-click="showAdvanced($event)">
-                    Custom Dialog
-                </md-button>
-            </li>*@
         </ul>
     </div>
     <div class="search-bar">
@@ -85,7 +61,8 @@
     <div class="grid-list-product">
         <div ng-repeat="product in allProducts"
              class="product-grid"
-             ng-click="selectProduct($event, product)">
+             ng-click="selectProduct($event, product)"
+             ng-dblclick="showAdvanced($event, true)">
             <div class="product-image padding-left">
                 @*<img class="product-image" src="~/Content/images/books.jpg" />*@
                 <label class="label" data-toggle="tooltip" title="Change your avatar">
@@ -94,12 +71,12 @@
                 </label>
             </div>
             <div class="product-name padding-left">
-                <span ng-if="!product.isEditable">{{product.Name}}</span>
-                <input type="text" ng-if="product.isEditable" ng-model="product.Name" placeholder="product's name" />
+                <span>{{product.Name}}</span>
+                @*<input type="text" ng-if="product.isEditable" ng-model="product.Name" placeholder="product's name" />*@
             </div>
             <div class="product-price padding-left">
-                <span ng-if="!product.isEditable">{{product.Price | currency: "₫ ": 3}}</span>
-                <input type="number" ng-if="product.isEditable" ng-model="product.Price" />
+                <span>{{product.Price | currency: "₫ ": 3}}</span>
+                @*<input type="number" ng-if="product.isEditable" ng-model="product.Price" />*@
             </div>
         </div>
     </div>
@@ -120,7 +97,7 @@
                     <div class="md-dialog-content">
                         <div class="product-image padding-left" style="height: 700px">
                             <label class="label" data-toggle="tooltip" title="Choose the product's image">
-                                <img class="rounded image-avatar" ng-src="{{selectedProduct.ImageValue}}" alt="avatar">
+                                <img class="rounded" ng-src="{{selectedProduct.ImageValue}}" alt="productImage">
                                 <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
                             </label>
                         </div>
@@ -138,6 +115,9 @@
                     </md-button>
                     <md-button ng-click="answer(false)">
                         Cancel
+                    </md-button>
+                    <md-button ng-click="delete()">
+                        Delete
                     </md-button>
                 </md-dialog-actions>
             </form>
