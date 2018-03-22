@@ -116,18 +116,18 @@
                         </md-button>
                     </div>
                 </md-toolbar>
-                <md-dialog-content>
+                <md-dialog-content class="md-dialog-content-class">
                     <div class="md-dialog-content">
-                        <div class="product-image padding-left" style="height: 500px">
+                        <div class="product-image padding-left" style="height: 700px">
                             <label class="label" data-toggle="tooltip" title="Choose the product's image">
                                 <img class="rounded image-avatar" ng-src="{{selectedProduct.ImageValue}}" alt="avatar">
                                 <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
                             </label>
                         </div>
-                        <div class="product-name padding-left">
+                        <div class="product-name-popup padding-left">
                             <input type="text" ng-model="selectedProduct.Name" placeholder="product's name" />
                         </div>
-                        <div class="product-price padding-left">
+                        <div class="product-price-popup padding-left">
                             <input type="number" ng-model="selectedProduct.Price" />
                         </div>
                     </div>
