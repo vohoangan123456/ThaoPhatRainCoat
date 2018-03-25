@@ -1,12 +1,26 @@
 ﻿var appShopPage = angular.module("appShopPage", ['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 var appHomePage = angular.module("appHomePage", []);
 var appAboutPage = angular.module("appAboutPage", []);
+var appLoginPage = angular.module("appLoginPage", []);
+var appSlideshowPage = angular.module("appSlideshowPage", ['ngMaterial', 'ngMessages', 'material.svgAssetsCache']);
 
 /*------------------HELP ANGULARJS WORK WELL WITH BOOTSTRAP SELECT------------------  
 ---- Author: LinhNV 
 ---- To use, just inject angular-bootstrap-select module to your app, and add selectpicker directive to select element 
 ------------------------------------------------------------------------------------*/
+var localStorageKey = {
+    token: 'token'
+};
 
+function getLocalStorage(key) {
+    return window.localStorage.getItem(key);
+}
+function setLocalStorage(key, value) {
+    window.localStorage.setItem(key, value);
+}
+function removeLocalStorage(key) {
+    window.localStorage.removeItem(key);
+}
 angular.module('angular-bootstrap-select', [])
     .directive('selectpicker', ['$parse', function ($parse) {
         return {

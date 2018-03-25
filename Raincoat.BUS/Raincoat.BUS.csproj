@@ -81,6 +81,7 @@
     <Compile Include="AboutBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShopBUS.cs" />
+    <Compile Include="SlideshowBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Raincoat.BE\Raincoat.BE.csproj">

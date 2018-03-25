@@ -6,10 +6,13 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
     }, 5000);
     //the first method run when load shop page
     $scope.init = function () {
+        $scope.token = globalResources.token;
         $scope.searchKey = '';
+        $scope.sortByCriterion = 1; //[1,2,3,4] = [price heigh-low, low-heigh, name a-z, z-a]
         $scope.productSize = {};
         $scope.status = '  ';
         $scope.customFullscreen = false;
+        //handleDeviceSize();
         shopService.getAllProducts().then(function (result) {
             $scope.shopModel = result.data;
             $scope.emptyProduct = result.data.productBE;
@@ -24,18 +27,11 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
                     height: $(".product-grid").height(),
                     width: $(".product-grid").width()
                 };
-                $('.image-avatar').css('width', $(".product-grid").width())
-                    .css('height', $(".product-grid").width());
+                $('.image-avatar').css('width', $(".product-grid").width()- 15);
             }, 10);
         });
     }
-
-    //action edit a product
-    $scope.editProduct = function () {
-    }
-    //action delete a product
-    $scope.deleteProduct = function () {
-    }
+    
     //action select product
     $scope.selectProduct = function (element, product) {
         $('.selected-product').removeClass('selected-product');
@@ -44,43 +40,115 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
     }
     //action search products
     $scope.searchProduct = function () {
-        //alert($scope.searchKey);
+        getProducts();
     }
     //select sort by criterion
     $scope.sortBy = function (element) {
-        var criterion = $(element.currentTarget).attr('name');
+        $scope.sortByCriterion = $(element.currentTarget).attr('name');
         var newValueForButton = "Sorting by: " + $(element.currentTarget).find('span').html() + " <i class='fa fa-caret-down'></i>";
         $('#sort-criterion').html(newValueForButton);
         //handle the action sorting
+        getProducts();
     }
     $scope.refreshPage = function () {
         $timeout(function () {
-            $scope.$apply();
+            $(".product-grid").css("height", $(".product-grid").width() * 5 / 3);
+            $('.image-avatar').css('width', $(".product-grid").width() - 15);
         }, 0);
     }
 
-    $scope.changeImage = function (element, product) {
-        if (element.files && element.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $(element.previousElementSibling)
-                    .attr('src', e.target.result)
-                    .attr('height', $scope.productSize.width)
-                    .attr('width', $scope.productSize.width);
-                $scope.selectedProduct.ImageValue = e.target.result;
+    //show edit for slideshow
+    $scope.showSlideshowEdit = function (ev) {
+        window.location.href = '/Shop/Slideshow';
+        //$mdDialog.show({
+        //    controller: SlideshowDialogController,
+        //    templateUrl: 'editSlideshow.tmpl.html',
+        //    parent: angular.element(document.body),
+        //    targetEvent: ev,
+        //    clickOutsideToClose: true,
+        //    fullscreen: true,
+        //    locals: {
+        //        listSlideshow: angular.copy($scope.allProducts)
+        //    }
+        //}).then(function (answer) {
+        //    if (answer) {
+        //    }
+        //});
+    }
+    function SlideshowDialogController($scope, $mdDialog, listSlideshow) {
+        $scope.listSlideshow = listSlideshow;
+        $scope.cropper = null;
+        $scope.selectedSlide = null;
+        $scope.selectedSlideOrigin = null;
+        //function
+        $scope.cancel = function () {
+            $scope.selectedSlide = angular.copy($scope.selectedSlideOrigin);
+            $scope.cropper.destroy();
+            $scope.cropper = null;
+            $(".original-image-slideshow").css('display', 'none');
+            $("#crop-image-" + $scope.selectedSlide.Id)
+                .attr('src', $scope.selectedSlide.ImageValue)
+                .attr('width', 200);
+        };
+        $scope.save = function () {
+            $scope.cropper.destroy();
+            $scope.cropper = null;
+            $(".original-image-slideshow").css('display', 'none');
+        };
+        $scope.delete = function () {
+            var result = {
+                deleted: true,
+                answer: null
             }
-            var dataImage = reader.readAsDataURL(element.files[0]);
+            $mdDialog.hide(result);
+        };
+        $scope.close = function () {
+            var result = {
+                answer: false
+            }
+            $mdDialog.hide();
+        }
+        $scope.changeImage = function (element) {
+            if (element.files && element.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    if ($scope.cropper != null) {
+                        $scope.cropper.destroy();
+                        $scope.cropper = null;
+                    }
+                    $("#original-image-" + $scope.selectedSlide.Id)
+                        .attr('src', e.target.result);
+                    $scope.cropper = new Cropper(document.querySelector("#original-image-" + $scope.selectedSlide.Id), {
+                        scalable: false,
+                        aspectRatio: 16 / 9,
+                        viewMode: 1,
+                        crop: function (data) {
+                            $("#crop-image-" + $scope.selectedSlide.Id)
+                                .attr('src', this.cropper.getCroppedCanvas().toDataURL())
+                                .attr('width', 200);
+                            $scope.selectedSlide.ImageValue = this.cropper.getCroppedCanvas().toDataURL();
+                        },
+                        minContainerWidth: 200
+                    });
+                }
+                var dataImage = reader.readAsDataURL(element.files[0]);
+            }
+        }
+        $scope.clickImage = function (element, slide) {
+            $('.slideshow-popup-selected').removeClass('slideshow-popup-selected');
+            $(element.currentTarget).addClass('slideshow-popup-selected');
+            $scope.selectedSlide = slide;
+            $scope.selectedSlideOrigin = angular.copy(slide);
         }
     }
 
-    $scope.editProduct = function (ev, product) {
-    }
     //isEditMode = true: edit
     //isEditMode = false: create
     $scope.showAdvanced = function (ev, isEditMode) {
+        if ($scope.token == '')
+            return;
         $mdDialog.show({
-            controller: DialogController,
+            controller: EditProductDialogController,
             templateUrl: 'createUpdate.tmpl.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -103,8 +171,7 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
                             $('.selected-product').removeClass('selected-product');
                             $('.product-grid').first().addClass('selected-product');
                             $('.image-avatar').first()
-                                .css('width', $(".product-grid").width())
-                                .css('height', $(".product-grid").width());
+                                .css('width', $(".product-grid").width() - 15);
                             $scope.$apply();
                         }, 10);
                     });
@@ -124,9 +191,10 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
             }
         });
     };
-    function DialogController($scope, $mdDialog, selectedProduct, isEditMode) {
+    function EditProductDialogController($scope, $mdDialog, selectedProduct, isEditMode) {
         $scope.selectedProduct = selectedProduct;
         $scope.isEditMode = isEditMode;
+        $scope.cropper = null;
         $scope.productSize = {
             height: 800,
             width: 230
@@ -161,11 +229,24 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $(element.previousElementSibling)
-                        .attr('src', e.target.result)
-                        .attr('height', $scope.productSize.width)
-                        .attr('width', $scope.productSize.width);
-                    $scope.selectedProduct.ImageValue = e.target.result;
+                    if ($scope.cropper != null) {
+                        $scope.cropper.destroy();
+                        $scope.cropper = null;
+                    }
+                    $("#original-image")
+                        .attr('src', e.target.result);
+                    $scope.cropper = new Cropper(document.querySelector("#original-image"), {
+                        scalable: false,
+                        aspectRatio: 12 / 16,
+                        viewMode: 1,
+                        crop: function (data) {
+                            $("#crop-image")
+                                .attr('src', this.cropper.getCroppedCanvas().toDataURL())
+                                .attr('width', 200);
+                            $scope.selectedProduct.ImageValue = this.cropper.getCroppedCanvas().toDataURL();
+                        },
+                        minContainerWidth: 100
+                    });
                 }
                 var dataImage = reader.readAsDataURL(element.files[0]);
             }
@@ -173,9 +254,10 @@ appShopPage.controller('shopController', function ($scope, $mdDialog, shopServic
     }
 
     function getProducts() {
-        shopService.getProductsByCondition()
-            .then(function (result) {
-            });
+        shopService.getProductsByCondition($scope.searchKey, $scope.sortByCriterion).then(function (result) {
+            $scope.allProducts = result.data;
+            $scope.refreshPage();
+        });
     }
 
     function convertImgToBase64() {

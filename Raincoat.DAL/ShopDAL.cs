@@ -17,6 +17,16 @@ namespace Raincoat.DAL
             return returnTable;
         }
 
+        public DataTable GetProductByCondition(string searchKey, int orderBy)
+        {
+            SqlParameter[] paramList = new SqlParameter[2];
+            paramList[0] = DataProvider.AddParameters("@SearchKey", SqlDbType.NVarChar, searchKey);
+            paramList[1] = DataProvider.AddParameters("@OrderBy", SqlDbType.Int, orderBy);
+            DataTable returnTable = this.ExecuteSelectQuery(Constants.GET_PRODUCT_BY_CONDITION, paramList);
+
+            return returnTable;
+        }
+
         public int CreateNewProduct(string name, int price, string imageValue)
         {
             SqlParameter[] paramList = new SqlParameter[3];
@@ -35,6 +45,14 @@ namespace Raincoat.DAL
             paramList[2] = DataProvider.AddParameters("@Price", SqlDbType.BigInt, price);
             paramList[3] = DataProvider.AddParameters("@ImageValue", SqlDbType.NVarChar, imageValue);
             int noOfSuccess = this.ExecuteUpdateQuery(Constants.UPDATE_PRODUCT, paramList);
+            return noOfSuccess;
+        }
+
+        public int DeleteProduct(int productId)
+        {
+            SqlParameter[] paramList = new SqlParameter[1];
+            paramList[0] = DataProvider.AddParameters("@ProductId", SqlDbType.Int, productId);
+            int noOfSuccess = this.ExecuteUpdateQuery(Constants.DELETE_PRODUCT, paramList);
             return noOfSuccess;
         }
     }

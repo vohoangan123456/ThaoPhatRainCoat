@@ -8,7 +8,7 @@ appShopPage.service('shopService', function ($http) {
             data: {}
         });
         return response;
-    },
+    };
 
     this.getProductsOrderBy = function (keyOrder) {
         var response = $http({
@@ -19,7 +19,7 @@ appShopPage.service('shopService', function ($http) {
             }
         });
         return response;
-    },
+    };
 
     this.createNewProduct = function (product) {
         var response = $http({
@@ -30,7 +30,7 @@ appShopPage.service('shopService', function ($http) {
             }
         });
         return response;
-    },
+    };
 
     this.updateProduct = function (product) {
         var response = $http({
@@ -38,6 +38,29 @@ appShopPage.service('shopService', function ($http) {
             url: '/Shop/UpdateProduct',
             data: {
                 product: product
+            }
+        });
+        return response;
+    };
+
+    this.deleteProduct = function (productId) {
+        var response = $http({
+            method: 'post',
+            url: '/Shop/DeleteProduct',
+            data: {
+                productId: productId
+            }
+        });
+        return response;
+    };
+
+    this.getProductsByCondition = function (searchKey, orderById) {
+        var response = $http({
+            method: 'post',
+            url: '/Shop/GetProductByCondition',
+            data: {
+                searchKey: searchKey,
+                orderBy: orderById
             }
         });
         return response;

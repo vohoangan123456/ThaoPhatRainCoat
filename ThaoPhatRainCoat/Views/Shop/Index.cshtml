@@ -16,18 +16,21 @@
                     <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <a class="carousel-item" href="#one!"><img src="http://s20.postimg.org/h50tgcuz1/image.jpg"></a>
-            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/uxf8bzlql/image.jpg"></a>
-            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/el56m97f1/image.jpg"></a>
-            <a class="carousel-item" href="#two!"><img src="http://s20.postimg.org/66pjy66dp/image.jpg"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allProducts[0].ImageValue}}"></a>
+            <a class="carousel-item" href="#two!"><img ng-src="{{allProducts[1].ImageValue}}"></a>
+            <a class="carousel-item" href="#two!"><img ng-src="{{allProducts[2].ImageValue}}"></a>
+            <a class="carousel-item" href="#two!"><img ng-src="{{allProducts[3].ImageValue}}"></a>
         </div>
 
     </div>
-    <div class="top-control-bar">
+    <div class="top-control-bar" ng-if="token != ''">
         <ul class="top-control-bar-ul">
             <li>
                 <a class="waves-effect waves-light btn btn-style-top-bar btn-new" ng-click="showAdvanced($event, false)">
                     <i class="fa fa-plus"></i> New
+                </a>
+                <a class="waves-effect waves-light btn btn-style-top-bar" ng-click="showSlideshowEdit($event)">
+                    <i class="fa fa-edit"></i>Edit Slideshow
                 </a>
             </li>
         </ul>
@@ -64,42 +67,45 @@
              ng-click="selectProduct($event, product)"
              ng-dblclick="showAdvanced($event, true)">
             <div class="product-image padding-left">
-                @*<img class="product-image" src="~/Content/images/books.jpg" />*@
-                <label class="label" data-toggle="tooltip" title="Change your avatar">
-                    <img class="rounded image-avatar" ng-src="{{product.ImageValue}}" alt="avatar">
-                    <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
+                <label class="label">
+                    <img class="rounded image-avatar" ng-src="{{product.ImageValue}}" alt="productImage">
                 </label>
             </div>
             <div class="product-name padding-left">
                 <span>{{product.Name}}</span>
-                @*<input type="text" ng-if="product.isEditable" ng-model="product.Name" placeholder="product's name" />*@
             </div>
             <div class="product-price padding-left">
                 <span>{{product.Price | currency: "₫ ": 3}}</span>
-                @*<input type="number" ng-if="product.isEditable" ng-model="product.Price" />*@
             </div>
         </div>
     </div>
 
     <script type="text/ng-template" id="createUpdate.tmpl.html">
-        <md-dialog aria-label="Mango (Fruit)" class="dialog-template">
+        <md-dialog aria-label="Product handler" class="dialog-template">
             <form ng-cloak class="dialog-form">
                 <md-toolbar>
                     <div class="md-toolbar-tools">
                         <h2>{{isEditMode ? 'Edit product' : 'Create new product'}}</h2>
                         <span flex></span>
-                        <md-button class="md-icon-button" ng-click="cancel()">
+                        <md-button class="md-icon-button" ng-click="answer(false)">
                             <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
                         </md-button>
                     </div>
                 </md-toolbar>
                 <md-dialog-content class="md-dialog-content-class">
                     <div class="md-dialog-content">
-                        <div class="product-image padding-left" style="height: 700px">
-                            <label class="label" data-toggle="tooltip" title="Choose the product's image">
-                                <img class="rounded" ng-src="{{selectedProduct.ImageValue}}" alt="productImage">
-                                <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
-                            </label>
+                        <div class="product-image-popup padding-left">
+                            <div class="row">
+                                <div class="col col-lg-6">
+                                    <label class="label" data-toggle="tooltip" title="Choose the product's image">
+                                        <img class="rounded" id="crop-image" ng-src="{{selectedProduct.ImageValue}}" alt="productImage">
+                                        <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
+                                    </label>
+                                </div>
+                                <div class="col col-lg-6">
+                                    <img class="rounded" id="original-image">
+                                </div>
+                            </div>
                         </div>
                         <div class="product-name-popup padding-left">
                             <input type="text" ng-model="selectedProduct.Name" placeholder="product's name" />
@@ -110,13 +116,68 @@
                     </div>
                 </md-dialog-content>
                 <md-dialog-actions layout="row">
-                    <md-button ng-click="answer(true, selectedProduct)">
+                    <md-button class="waves-effect waves-light btn" ng-click="answer(true, selectedProduct)">
                         Save
                     </md-button>
-                    <md-button ng-click="answer(false)">
+                    <md-button class="waves-effect waves-light btn grey lighten-2" ng-click="answer(false)">
                         Cancel
                     </md-button>
-                    <md-button ng-click="delete()">
+                    <md-button ng-if="isEditMode" class="btn waves-effect waves-light red lighten-2" ng-click="delete()">
+                        Delete
+                    </md-button>
+                </md-dialog-actions>
+            </form>
+        </md-dialog>
+    </script>
+    <script type="text/ng-template" id="editSlideshow.tmpl.html">
+        <md-dialog aria-label="Product handler" class="dialog-template">
+            <form ng-cloak class="dialog-form">
+                <md-toolbar>
+                    <div class="md-toolbar-tools">
+                        <h2>Edit Slideshow</h2>
+                        <span flex></span>
+                        <md-button class="md-icon-button" ng-click="close()">
+                            <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                        </md-button>
+                    </div>
+                </md-toolbar>
+                <md-dialog-content class="md-dialog-content-class">
+                    <div class="md-dialog-content">
+                        <div ng-repeat="slide in listSlideshow" class="slideshow-popup" tabindex="0" ng-click="clickImage($event, slide)" >
+                            <div class="row">
+                                <div class="col col-lg-1">slide {{$index + 1}}</div>
+                                <div class="col col-lg-4">
+                                    <label class="label" data-toggle="tooltip" title="Choose the slide's image">
+                                        <img class="rounded" id="crop-image-{{slide.Id}}" ng-src="{{slide.ImageValue}}" alt="slideImage">
+                                        <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
+                                    </label>
+                                </div>
+                                <div class="col col-lg-5">
+                                    <img class="rounded original-image-slideshow" id="original-image-{{slide.Id}}">
+                                </div>
+                                <div class="col col-lg-2" ng-show="slide.Id == selectedSlide.Id">
+                                    <md-button class="waves-effect waves-light btn" ng-click="save()">
+                                        Save
+                                    </md-button>
+                                    <md-button class="waves-effect waves-light btn grey lighten-2" ng-click="cancel()">
+                                        Cancel
+                                    </md-button>
+                                    <md-button class="waves-effect waves-light btn red lighten-2" ng-click="delete()">
+                                        Delete
+                                    </md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-dialog-content>
+                <md-dialog-actions layout="row">
+                    <md-button class="waves-effect waves-light btn" ng-click="save()">
+                        Save
+                    </md-button>
+                    <md-button class="waves-effect waves-light btn grey lighten-2" ng-click="cancel()">
+                        Cancel
+                    </md-button>
+                    <md-button class="waves-effect waves-light btn red lighten-2" ng-click="delete()">
                         Delete
                     </md-button>
                 </md-dialog-actions>

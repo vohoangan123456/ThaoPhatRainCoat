@@ -16,6 +16,11 @@ namespace Raincoat.BUS
             DataTable table = shopDAL.GetAllProducts();
             return TableToBE(table);
         }
+        public List<ProductsBE> GetProductByCondition(string searchKey, int orderBy)
+        {
+            DataTable table = shopDAL.GetProductByCondition(searchKey, orderBy);
+            return TableToBE(table);
+        }
 
         public int CreateNewProduct(ProductsBE product)
         {
@@ -25,6 +30,11 @@ namespace Raincoat.BUS
         public bool UpdateProduct(ProductsBE product)
         {
             int noOfSuccess = shopDAL.UpdateProduct(product.Id, product.Name, product.Price, product.ImageValue);
+            return noOfSuccess > 0 ? true : false;
+        }
+        public bool DeleteProduct(int productId)
+        {
+            int noOfSuccess = shopDAL.DeleteProduct(productId);
             return noOfSuccess > 0 ? true : false;
         }
         private List<ProductsBE> TableToBE(DataTable table)

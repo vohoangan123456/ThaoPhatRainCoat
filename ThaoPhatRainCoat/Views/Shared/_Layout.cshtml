@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ThaoPhatRainCoat.Utils;
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -20,13 +21,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Thao Phat Raincoat", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Thao Phat Raincoat", "Index", "Shop", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse top-menu">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Shop", "Index", "Shop", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("About us", "Index", "About", new { area = "" }, null)</li>
+                    @{
+                        if (ThaoPhatRainCoat.Utils.Helpers.GetUserToken() != null)
+                        {
+                            <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, null)</li>
+                        }
+                    }
                 </ul>
             </div>
         </div>
@@ -43,3 +50,8 @@
 
 </body>
 </html>
+<script type="text/javascript">
+    var globalResources = {
+        token : "@Helpers.GetUserToken()"
+    };
+</script>
