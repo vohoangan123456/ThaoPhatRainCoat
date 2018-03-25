@@ -44,10 +44,12 @@ namespace ThaoPhatRainCoat.Controllers
             List<ProductsBE> productList = this.shopBUS.GetProductByCondition(searchKey, orderByInt);
             return Json(productList, JsonRequestBehavior.AllowGet);
         }
-
+        
         public JsonResult CreateNewProduct(ProductsBE product)
         {
             int productId = this.shopBUS.CreateNewProduct(product);
+            byte[] img = Convert.FromBase64String(product.ImageValue.Split(';')[1]);
+            System.IO.File.WriteAllBytes(HttpContext.Server.MapPath(string.Format("Content/images/products/{0}.png",  productId)), img);
             return Json(productId, JsonRequestBehavior.AllowGet);
         }
 

@@ -6,7 +6,7 @@ appSlideshowPage.controller('SlideshowController', function ($scope, $mdDialog, 
     }, 5000);
     //the first method run when load shop page
     $scope.init = function () {
-        slideshowService.getAllslides().then(function (result) {
+        slideshowService.getAllSlides().then(function (result) {
             $scope.shopModel = result.data;
             $scope.emptySlide = result.data.slideBE;
             //$scope.emptySlide.isEditable = true;

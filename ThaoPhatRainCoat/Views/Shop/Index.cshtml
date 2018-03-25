@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div ng-app="appShopPage" ng-controller="shopController" ng-init="init()" id="shopController">
-    <div class="top-carousel">
+    @*<div class="top-carousel">
         <div class="carousel carousel-slider center " data-indicators="true">
             <div class="carousel-fixed-item center middle-indicator">
                 <div class="left">
@@ -16,13 +16,13 @@
                     <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <a class="carousel-item" href="#one!"><img ng-src="{{allProducts[0].ImageValue}}"></a>
-            <a class="carousel-item" href="#two!"><img ng-src="{{allProducts[1].ImageValue}}"></a>
-            <a class="carousel-item" href="#two!"><img ng-src="{{allProducts[2].ImageValue}}"></a>
-            <a class="carousel-item" href="#two!"><img ng-src="{{allProducts[3].ImageValue}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[0].ImageValue}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[1].ImageValue}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[2].ImageValue}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[3].ImageValue}}"></a>
         </div>
 
-    </div>
+    </div>*@
     <div class="top-control-bar" ng-if="token != ''">
         <ul class="top-control-bar-ul">
             <li>
@@ -37,7 +37,7 @@
     </div>
     <div class="search-bar">
         <input type='text'
-               placeholder=" Search product's name..."
+               placeholder=" Tìm kiếm theo tên sản phẩm..."
                id='search-text-input'
                ng-model="searchKey" />
 
@@ -48,15 +48,15 @@
         </div>
         <div id="filter-sort-by">
             <ul id="dropdown" class="dropdown-content">
-                <li ng-click="sortBy($event)" name="1"><span>Catalog price: High to Low</span></li>
-                <li ng-click="sortBy($event)" name="2"><span>Catalog price: Low to High</span></li>
-                <li ng-click="sortBy($event)" name="3"><span>Name - A to Z</span></li>
-                <li ng-click="sortBy($event)" name="4"><span>Name - Z to A</span></li>
+                <li ng-click="sortBy($event)" name="1"><span>Giá: Cao tới thấp</span></li>
+                <li ng-click="sortBy($event)" name="2"><span>Giá: Thấp tới cao</span></li>
+                <li ng-click="sortBy($event)" name="3"><span>Tên - A đến Z</span></li>
+                <li ng-click="sortBy($event)" name="4"><span>Tên - Z đến A</span></li>
             </ul>
 
             <button id="sort-criterion" class="dropdown-button w3-btn w3-round-xxlarge sort-by waves-effect waves-light w3-margin-left"
                     data-activates="dropdown">
-                Sort by
+                Sắp xếp
                 <i class="fa fa-caret-down"></i>
             </button>
         </div>
@@ -143,7 +143,7 @@
                 </md-toolbar>
                 <md-dialog-content class="md-dialog-content-class">
                     <div class="md-dialog-content">
-                        <div ng-repeat="slide in listSlideshow" class="slideshow-popup" tabindex="0" ng-click="clickImage($event, slide)" >
+                        <div ng-repeat="slide in listSlideshow" class="slideshow-popup" tabindex="0" ng-click="clickImage($event, slide)">
                             <div class="row">
                                 <div class="col col-lg-1">slide {{$index + 1}}</div>
                                 <div class="col col-lg-4">
@@ -187,5 +187,5 @@
 </div>
 @section scripts{
     <script src="~/Scripts/Apps/controllers/shop.controller.js"></script>
-    <script src="~/Scripts/Apps/services/shop.service.js"></script>    
+    <script src="~/Scripts/Apps/services/shop.service.js"></script>
 }

@@ -1,5 +1,15 @@
 ﻿'use strict';
 appShopPage.service('shopService', function ($http) {
+    //get all slides
+    this.getAllSlides = function () {
+        var response = $http({
+            method: 'POST',
+            url: '/Shop/GetAllSlides',
+            data: {}
+        });
+        return response;
+    };
+
     //get all products
     this.getAllProducts = function () {
         var response = $http({

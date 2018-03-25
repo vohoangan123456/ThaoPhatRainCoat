@@ -1,7 +1,7 @@
 ﻿'use strict';
 appSlideshowPage.service('slideshowService', function ($http) {
     //get all slides
-    this.getAllslides = function () {
+    this.getAllSlides = function () {
         var response = $http({
             method: 'POST',
             url: '/Shop/GetAllSlides',
