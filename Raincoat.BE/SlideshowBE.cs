@@ -11,13 +11,22 @@ namespace Raincoat.BE
         public string Name { get; set; }
         public string ImageValue { get; set; }
         public int Order { get; set; }
+        public string ImagePath
+        {
+            get
+            {
+                return string.Concat(hostPath, string.Format("Content/images/slides/{0}.jpg", Id));
+            }
+        }
+        public string hostPath { get; set; }
 
         public SlideshowBE()
         {
-            Id = 0;
+            Id = -1;
             Name = string.Empty;
             ImageValue = string.Empty;
-            Order = 0;
+            Order = -1;
+            hostPath = string.Empty;
         }
     }
 }

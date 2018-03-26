@@ -7,6 +7,9 @@ using Raincoat.BUS;
 using Raincoat.BE;
 using ThaoPhatRainCoat.Models;
 using ThaoPhatRainCoat.Utils;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Drawing;
 
 namespace ThaoPhatRainCoat.Controllers
 {
@@ -33,7 +36,7 @@ namespace ThaoPhatRainCoat.Controllers
         public JsonResult GetAllProducts()
         {
             var model = new ShopModel();
-            List<ProductsBE> prodList = this.shopBUS.GetAllProducts();
+            List<ProductsBE> prodList = this.shopBUS.GetAllProducts(GetHostPath());
             model.products = prodList;
             return Json(model, JsonRequestBehavior.AllowGet);
         }
@@ -41,20 +44,23 @@ namespace ThaoPhatRainCoat.Controllers
         public JsonResult GetProductByCondition(string searchKey, string orderBy)
         {
             int orderByInt = int.Parse(orderBy);
-            List<ProductsBE> productList = this.shopBUS.GetProductByCondition(searchKey, orderByInt);
+            List<ProductsBE> productList = this.shopBUS.GetProductByCondition(searchKey, orderByInt, GetHostPath());
             return Json(productList, JsonRequestBehavior.AllowGet);
         }
         
         public JsonResult CreateNewProduct(ProductsBE product)
         {
+            product.hostPath = GetHostPath();
             int productId = this.shopBUS.CreateNewProduct(product);
-            byte[] img = Convert.FromBase64String(product.ImageValue.Split(';')[1]);
-            System.IO.File.WriteAllBytes(HttpContext.Server.MapPath(string.Format("Content/images/products/{0}.png",  productId)), img);
-            return Json(productId, JsonRequestBehavior.AllowGet);
+            UploadImage(product.ImageValue, productId, "products");
+            product.Id = productId;
+            return Json(product, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult UpdateProduct(ProductsBE product)
         {
+            product.hostPath = GetHostPath();
+            UploadImage(product.ImageValue, product.Id, "products");
             bool isSuccess = this.shopBUS.UpdateProduct(product);
             return Json(isSuccess, JsonRequestBehavior.AllowGet);
         }
@@ -70,19 +76,24 @@ namespace ThaoPhatRainCoat.Controllers
         public JsonResult GetAllSlides()
         {
             var model = new ShopModel();
-            List<SlideshowBE> slideList = this.slideBUS.GetAllSlides();
+            List<SlideshowBE> slideList = this.slideBUS.GetAllSlides(GetHostPath());
             model.slideshows = slideList;
             return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult CreateNewSlide(SlideshowBE slide)
         {
+            slide.hostPath = GetHostPath();
             int slideId = this.slideBUS.CreateNewSlide(slide);
-            return Json(slideId, JsonRequestBehavior.AllowGet);
+            UploadImage(slide.ImageValue, slideId, "slides");
+            slide.Id = slideId;
+            return Json(slide, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult UpdateSlide(SlideshowBE slide)
         {
+            slide.hostPath = GetHostPath();
+            UploadImage(slide.ImageValue, slide.Id, "slides");
             bool isSuccess = this.slideBUS.UpdateSlide(slide);
             return Json(isSuccess, JsonRequestBehavior.AllowGet);
         }
@@ -93,5 +104,31 @@ namespace ThaoPhatRainCoat.Controllers
             return Json(isSuccess, JsonRequestBehavior.AllowGet);
         }
         #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ImageValue"></param>
+        /// <param name="Id"></param>
+        /// <param name="folderName">products, slides</param>
+        private void UploadImage(string ImageValue, int Id, string folderName)
+        {
+            var base64Data = Regex.Match(ImageValue, @"data:image/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
+            var binData = Convert.FromBase64String(base64Data);
+
+            using (var stream = new MemoryStream(binData))
+            {
+                var x = System.Reflection.Assembly.GetExecutingAssembly().CodeBase;
+                Bitmap Image = new Bitmap(stream);
+                Image.Save(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, string.Format("Content/images/{0}/{1}.jpg", folderName, Id)));
+            }
+        }
+        private string GetHostPath()
+        {
+            UriBuilder builder = null;
+            builder = new UriBuilder(Request.Url.Scheme,
+                                            Request.Url.Host,
+                                            Request.Url.Port);
+            return builder.ToString();
+        }
     }
 }

@@ -11,20 +11,20 @@ namespace Raincoat.BUS
     public class SlideshowBUS
     {
         private SlideshowDAL slideDAL = new SlideshowDAL();
-        public List<SlideshowBE> GetAllSlides()
+        public List<SlideshowBE> GetAllSlides(string hostPath)
         {
             DataTable table = slideDAL.GetAllSlides();
-            return TableToBE(table);
+            return TableToBE(table, hostPath);
         }
 
         public int CreateNewSlide(SlideshowBE slide)
         {
-            int productId = slideDAL.CreateNewSlide(slide.Name, slide.ImageValue, slide.Order);
+            int productId = slideDAL.CreateNewSlide(slide.Name, string.Empty, slide.Order);
             return productId;
         }
         public bool UpdateSlide(SlideshowBE slide)
         {
-            int noOfSuccess = slideDAL.UpdateSlide(slide.Id, slide.Name, slide.ImageValue, slide.Order);
+            int noOfSuccess = slideDAL.UpdateSlide(slide.Id, slide.Name, string.Empty, slide.Order);
             return noOfSuccess > 0 ? true : false;
         }
         public bool DeleteSlide(int slideId)
@@ -32,7 +32,7 @@ namespace Raincoat.BUS
             int noOfSuccess = slideDAL.DeleteSlide(slideId);
             return noOfSuccess > 0 ? true : false;
         }
-        private List<SlideshowBE> TableToBE(DataTable table)
+        private List<SlideshowBE> TableToBE(DataTable table, string hostPath)
         {
             List<SlideshowBE> returnBE = new List<SlideshowBE>();
             foreach (DataRow row in table.Rows)
@@ -50,6 +50,7 @@ namespace Raincoat.BUS
                 be.Order = row.Table.Columns.Contains("Order")
                     ? DataProvider.GetDBInteger(row, "Order")
                     : -1;
+                be.hostPath = hostPath;
                 returnBE.Add(be);
             }
             return returnBE;

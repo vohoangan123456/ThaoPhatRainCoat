@@ -7,6 +7,9 @@ appSlideshowPage.controller('SlideshowController', function ($scope, $mdDialog, 
     //the first method run when load shop page
     $scope.init = function () {
         slideshowService.getAllSlides().then(function (result) {
+            result.data.slideshows.forEach(function (value, index) {
+                value.ImagePathTemp = $scope.loadImageSrc(value.ImagePath);
+            });
             $scope.shopModel = result.data;
             $scope.emptySlide = result.data.slideBE;
             //$scope.emptySlide.isEditable = true;
@@ -31,6 +34,10 @@ appSlideshowPage.controller('SlideshowController', function ($scope, $mdDialog, 
         }, 0);
     }
 
+    $scope.loadImageSrc = function (imgPath) {
+        return imgPath + '?' + new Date().getTime();
+    }
+
     //isEditMode = true: edit
     //isEditMode = false: create
     $scope.showAdvanced = function (ev, isEditMode) {
@@ -53,18 +60,32 @@ appSlideshowPage.controller('SlideshowController', function ($scope, $mdDialog, 
                     $scope.selectedSlide = answer.selectedSlide;
                     if (answer.selectedSlide.Id <= 0) {
                         $scope.allSlides.unshift($scope.selectedSlide);
-                        slideshowService.createNewSlide($scope.selectedSlide).then(function (result) {
-                            $scope.allSlides[0].Id = result.data;
-                            $timeout(function () {
-                                $('.selected-slide').removeClass('selected-slide');
-                                $('.slide-grid').first().addClass('selected-slide');
-                                $('.image-avatar').first()
-                                    .css('height', 200);
-                                $scope.$apply();
-                            }, 10);
-                        });
+                        slideshowService.createNewSlide($scope.selectedSlide).then(
+                            function (result) {
+                                $scope.allSlides[0] = result.data;
+                                $scope.allSlides[0].ImagePathTemp = $scope.loadImageSrc($scope.allSlides[0].ImagePath);
+                                $timeout(function () {
+                                    $('.selected-slide').removeClass('selected-slide');
+                                    $('.slide-grid').first().addClass('selected-slide');
+                                    $('.image-avatar').first()
+                                        .css('height', 200);
+                                    $scope.$apply();
+                                }, 10);
+                            },
+                            function (error) {
+                                $scope.allSlides.shift();
+                                alert("Thêm slide không thành công");
+                            }
+                        );
                     } else {
-                        slideshowService.updateSlide($scope.selectedSlide).then(function (result) { });
+                        slideshowService.updateSlide($scope.selectedSlide).then(
+                            function (result) {
+                                $scope.selectedSlide.ImagePathTemp = $scope.loadImageSrc($scope.selectedSlide.ImagePath);
+                            },
+                            function (error) {
+                                alert("Update slide không thành công");
+                            }
+                        );
                     }
                 }
                 if (answer.deleted) {

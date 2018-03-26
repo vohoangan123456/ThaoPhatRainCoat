@@ -15,6 +15,13 @@ namespace Raincoat.BE
         public string CreatedBy { get; set; }
         public bool isEditable { get; set; }
         public string ImageValue { get; set; }
+        public string ImagePath {
+            get
+            {
+                return string.Concat(hostPath, string.Format("Content/images/products/{0}.jpg", Id));
+            }
+        }
+        public string hostPath { get; set; }
 
         public ProductsBE()
         {
@@ -26,6 +33,7 @@ namespace Raincoat.BE
             CreatedBy = string.Empty;
             isEditable = false;
             ImageValue = string.Empty;
+            hostPath = string.Empty;
         }
     }
 }

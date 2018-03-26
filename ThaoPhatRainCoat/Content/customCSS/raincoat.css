@@ -152,6 +152,7 @@ a.middle-indicator-text {
 .grid-list-product > div {
     position: relative;
     padding-right: 5px;
+    border: 1px solid gainsboro;
 }
 
 .grid-list-product > div:hover {

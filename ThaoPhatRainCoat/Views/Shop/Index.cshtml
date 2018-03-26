@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div ng-app="appShopPage" ng-controller="shopController" ng-init="init()" id="shopController">
-    @*<div class="top-carousel">
+    <div class="top-carousel">
         <div class="carousel carousel-slider center " data-indicators="true">
             <div class="carousel-fixed-item center middle-indicator">
                 <div class="left">
@@ -16,13 +16,13 @@
                     <a href="Siguiente" class=" moveNextCarousel middle-indicator-text waves-effect waves-light content-indicator"><i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[0].ImageValue}}"></a>
-            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[1].ImageValue}}"></a>
-            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[2].ImageValue}}"></a>
-            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[3].ImageValue}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[0].ImagePath}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[1].ImagePath}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[2].ImagePath}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[3].ImagePath}}"></a>
         </div>
 
-    </div>*@
+    </div>
     <div class="top-control-bar" ng-if="token != ''">
         <ul class="top-control-bar-ul">
             <li>
@@ -68,7 +68,7 @@
              ng-dblclick="showAdvanced($event, true)">
             <div class="product-image padding-left">
                 <label class="label">
-                    <img class="rounded image-avatar" ng-src="{{product.ImageValue}}" alt="productImage">
+                    <img class="rounded image-avatar" ng-src="{{product.ImagePathTemp}}" alt="productImage">
                 </label>
             </div>
             <div class="product-name padding-left">
@@ -98,7 +98,7 @@
                             <div class="row">
                                 <div class="col col-lg-6">
                                     <label class="label" data-toggle="tooltip" title="Choose the product's image">
-                                        <img class="rounded" id="crop-image" ng-src="{{selectedProduct.ImageValue}}" alt="productImage">
+                                        <img class="rounded" id="crop-image" ng-src="{{selectedProduct.ImagePath}}" alt="productImage">
                                         <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
                                     </label>
                                 </div>

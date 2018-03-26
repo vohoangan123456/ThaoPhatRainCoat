@@ -17,10 +17,10 @@
                 </div>
             </div>
             
-            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[0].ImageValue}}"></a>
-            <a class="carousel-item" href="#two!"><img ng-src="{{allSlides[1].ImageValue}}"></a>
-            <a class="carousel-item" href="#two!"><img ng-src="{{allSlides[2].ImageValue}}"></a>
-            <a class="carousel-item" href="#two!"><img ng-src="{{allSlides[3].ImageValue}}"></a>
+            <a class="carousel-item" href="#one!"><img ng-src="{{allSlides[0].ImagePath}}"></a>
+            <a class="carousel-item" href="#two!"><img ng-src="{{allSlides[1].ImagePath}}"></a>
+            <a class="carousel-item" href="#two!"><img ng-src="{{allSlides[2].ImagePath}}"></a>
+            <a class="carousel-item" href="#two!"><img ng-src="{{allSlides[3].ImagePath}}"></a>
         </div>
 
     </div>
@@ -40,7 +40,7 @@
              ng-dblclick="showAdvanced($event, true)">
             <div class="slide-image padding-left">
                 <label class="label">
-                    <img class="rounded image-avatar" ng-src="{{slide.ImageValue}}" alt="slideImage">
+                    <img class="rounded image-avatar" ng-src="{{slide.ImagePathTemp}}" alt="slideImage">
                 </label>
             </div>
             <div class="slide-name padding-left">
@@ -70,7 +70,7 @@
                             <div class="row">
                                 <div class="col col-lg-6">
                                     <label class="label" data-toggle="tooltip" title="Choose the product's image">
-                                        <img class="rounded" id="crop-image" ng-src="{{selectedSlide.ImageValue}}" alt="slideImage">
+                                        <img class="rounded" id="crop-image" ng-src="{{selectedSlide.ImagePath}}" alt="slideImage">
                                         <input type="file" class="sr-only image-input" onchange="angular.element(this).scope().changeImage(this)" name="image" accept="image/*">
                                     </label>
                                 </div>

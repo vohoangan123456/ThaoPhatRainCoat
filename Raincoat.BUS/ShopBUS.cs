@@ -11,25 +11,25 @@ namespace Raincoat.BUS
     public class ShopBUS
     {
         private ShopDAL shopDAL = new ShopDAL();
-        public List<ProductsBE> GetAllProducts()
+        public List<ProductsBE> GetAllProducts(string hostPath)
         {
             DataTable table = shopDAL.GetAllProducts();
-            return TableToBE(table);
+            return TableToBE(table, hostPath);
         }
-        public List<ProductsBE> GetProductByCondition(string searchKey, int orderBy)
+        public List<ProductsBE> GetProductByCondition(string searchKey, int orderBy, string hostPath)
         {
             DataTable table = shopDAL.GetProductByCondition(searchKey, orderBy);
-            return TableToBE(table);
+            return TableToBE(table, hostPath);
         }
 
         public int CreateNewProduct(ProductsBE product)
         {
-            int productId = shopDAL.CreateNewProduct(product.Name, product.Price, product.ImageValue);
+            int productId = shopDAL.CreateNewProduct(product.Name, product.Price, string.Empty);
             return productId;
         }
         public bool UpdateProduct(ProductsBE product)
         {
-            int noOfSuccess = shopDAL.UpdateProduct(product.Id, product.Name, product.Price, product.ImageValue);
+            int noOfSuccess = shopDAL.UpdateProduct(product.Id, product.Name, product.Price, string.Empty);
             return noOfSuccess > 0 ? true : false;
         }
         public bool DeleteProduct(int productId)
@@ -37,7 +37,7 @@ namespace Raincoat.BUS
             int noOfSuccess = shopDAL.DeleteProduct(productId);
             return noOfSuccess > 0 ? true : false;
         }
-        private List<ProductsBE> TableToBE(DataTable table)
+        private List<ProductsBE> TableToBE(DataTable table, string hostPath)
         {
             List<ProductsBE> returnBE = new List<ProductsBE>();
             foreach(DataRow row in table.Rows)
@@ -64,6 +64,7 @@ namespace Raincoat.BUS
                 be.ImageValue = row.Table.Columns.Contains("ImageValue")
                     ? DataProvider.GetDBString(row, "ImageValue")
                     : string.Empty;
+                be.hostPath = hostPath;
                 returnBE.Add(be);
             }
             return returnBE;
